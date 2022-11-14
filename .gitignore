@@ -28,3 +28,6 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore uploaded files in test/development
+/public/uploads
