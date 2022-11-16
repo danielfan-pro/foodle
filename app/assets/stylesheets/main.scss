@@ -1,9 +1,112 @@
 @import "colors";
 
+.top-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #b0b0b0;
+  text-align: center;
+}
+
+ul.right {
+  padding-top: 0.5rem;
+  margin: 0;
+}
+
+.top-bar ul {
+  background-color: #ffffff;
+}
+
+.button {
+  margin: 0.5rem;
+}
+
+.button.hollow {
+  border: none;
+  padding: 0rem;
+}
+
 .profile-icon {
   width: 2rem;
   height: 2rem;
   margin-right: 1rem;
   border-radius: 50%;
   margin-left: 1rem;
+  padding-bottom: 0.3rem;
+}
+
+.logo-nav-bar {
+  width: 5rem;
+  height: auto;
+}
+
+.logo-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-main-search {
+  width: 25%;
+  height: auto;
+}
+
+.search-bar {
+  padding-top: 3rem;
+}
+
+.input-group {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.restaurant-featured {
+  padding-bottom: 3rem;
+}
+
+.restaurant-featured-image {
+  width: 30%;
+  height: auto;
+}
+
+.restaurant-image {
+  width: 30%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.restaurant-featured-image:hover {
+  transform: scaleX(1.02) scaleY(1.02) scaleZ(1);
+  transition: transform 1.6s ease 0s;
+  box-shadow: 3px #b0b0b0;
+}
+
+.restaurant-image:hover {
+  transform: scaleX(1.05) scaleY(1.05) scaleZ(1);
+  transition: transform 1.6s ease 0s;
+  box-shadow: 3px #b0b0b0;
+}
+
+h5,
+h6 {
+  font-weight: bold;
+}
+
+.categories-price {
+  display: inline;
+}
+
+.price {
+  color: #b0b0b0;
+}
+
+.grid-margin-x {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.cell,
+.column {
+  text-align: center;
 }
