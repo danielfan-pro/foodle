@@ -1,18 +1,31 @@
 import React from "react"
+import ConvertRatingToStar from "./ConvertRatingToStar"
 
 const RestaurantFeatured = (props) => {
-  debugger
+  let categoriesArray = []
+  let categories = ""
+
+  props.restaurantFeatured.categories.forEach((category) => {
+    categoriesArray.push(category.title)
+    return categoriesArray
+  })
+
+  categories = categoriesArray.join(", ")
+
   return (
-    <div className="restaurant-featured">
-      <p>Name: {props.restaurantFeatured.name}</p>
-      <img
-        src={props.restaurantFeatured.image_url}
-        className="restaurant-featured-image"
-      />
-      <p>Phone: {props.restaurantFeatured.display_phone}</p>
-      <p>Price: {props.restaurantFeatured.price}</p>
-      <p>Rating: {props.restaurantFeatured.rating}</p>
-      <p>Address: {props.restaurantFeatured.location.display_address.join()}</p>
+    <div className="row restaurant-featured">
+      <div className="column">
+        <h5>{props.restaurantFeatured.name}</h5>
+        {ConvertRatingToStar.convert(props.restaurantFeatured.rating)}
+        <div className="categories-price">
+          <div className="price">{props.restaurantFeatured.price}</div>
+          <div>{categories}</div>
+        </div>
+        <img
+          src={props.restaurantFeatured.image_url}
+          className="restaurant-featured-image"
+        />
+      </div>
     </div>
   )
 }

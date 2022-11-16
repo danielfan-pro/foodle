@@ -16,7 +16,7 @@ const RestaurantSearchBar = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    debugger
+    
     try {
       const response = await fetch("/api/v1/restaurants/search", {
         method: "POST",

@@ -6,20 +6,21 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <%= render 'application/favicon' %>
+  <script src="https://kit.fontawesome.com/93f0a04255.js" crossorigin="anonymous"></script>
 </head>
 <body>
   
   <nav class="top-bar">
-    <a href="/"><%= image_tag("foodle logo long.png", alt: "logo", :class => "logo-nav-bar") %></a>
+    <a href="/restaurants"><%= image_tag("foodle logo long.png", alt: "logo", :class => "logo-nav-bar") %></a>
 
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button hollow"%>
           <img class="profile-icon" src='<%= current_user.profile_photo %>' />
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <%= link_to 'Sign Up', new_user_registration_path, :class => "button hollow" %>
+          <%= link_to 'Sign In', new_user_session_path, :class => "button hollow" %>
         <%- end -%>
       </ul>
     </section>

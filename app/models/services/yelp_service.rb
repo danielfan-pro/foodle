@@ -13,7 +13,7 @@ SEARCH_LIMIT = 20
 
 API_KEY = ENV["YELP_API_KEY"]
 
-def self.search(location = 'Boston', term = 'pizza')
+def self.search(location = 'Boston, MA', term = 'pizza')
   url = "#{API_HOST}#{SEARCH_PATH}"
   params = {
     location: location,

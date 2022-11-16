@@ -1,4 +1,3 @@
-require_relative "../../../services/yelp_service.rb"
 require "pry"
 
 class Api::V1::RestaurantsController < ApiController
@@ -9,9 +8,9 @@ class Api::V1::RestaurantsController < ApiController
     search_result_hash = YelpService.search(search_params[:location], search_params[:item])
     search_result_restaurants_array = search_result_hash["businesses"]
     
-    # randomly choose 5 restaurants from the 20 restaurants in the search result
+    # randomly choose 4 restaurants from the 20 restaurants in the search result
     
-    returned_restaurant = search_result_restaurants_array.sample(5)
+    returned_restaurant = search_result_restaurants_array.sample(4)
     
     restaurant_featured = returned_restaurant[0]
     restaurant_others = returned_restaurant[1..-1]

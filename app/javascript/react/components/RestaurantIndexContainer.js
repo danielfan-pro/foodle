@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import RestaurantSearchBar from "./RestaurantSearchBar"
 import RestaurantFeatured from "./RestaurantFeatured"
@@ -8,29 +8,20 @@ const RestaurantIndexContainer = () => {
   const [restaurantFeatured, setRestaurantFeatured] = useState({
     name: "",
     image_url: "",
-    display_phone: "",
     price: "",
     rating: "",
-    location: {
-      display_address: []
-    }
+    categories: [{}],
   })
   const [restaurantOthers, setRestaurantOthers] = useState([])
   const [displayLogo, setDisplayLogo] = useState("show")
 
-  // const restaurantTiles = restaurantOthers.map((restaurant) => {
-  //   <RestaurantTile
-
-  //   />
-
-  // })
-
-  // }
-
+  const restaurantTiles = restaurantOthers.map((restaurant) => {
+    return <RestaurantTile restaurant={restaurant} />
+  })
 
   return (
     <div>
-      <Link to="/">
+      <Link to="/restaurants">
         <div className={`logo-main ${displayLogo}`}>
           <img
             src="https://foodle-development.s3.amazonaws.com/foodle+logo+long.png"
@@ -44,10 +35,10 @@ const RestaurantIndexContainer = () => {
         setRestaurantOthers={setRestaurantOthers}
         setDisplayLogo={setDisplayLogo}
       />
-      <RestaurantFeatured
-        restaurantFeatured={restaurantFeatured}  
-      />
-      {/* {restaurantTiles} */}
+      {restaurantFeatured.name ? (
+        <RestaurantFeatured restaurantFeatured={restaurantFeatured} />
+      ) : null}
+      <div className="grid-x grid-margin-x">{restaurantTiles}</div>
     </div>
   )
 }
