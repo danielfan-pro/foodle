@@ -19,9 +19,14 @@ ul.right {
   margin: 0.5rem;
 }
 
+.button.clear{
+  color: $logo-blue;
+}
+
 .button.hollow {
   border: none;
   padding: 0rem;
+  color: $logo-blue;
 }
 
 .profile-icon {
@@ -64,13 +69,13 @@ ul.right {
 }
 
 .restaurant-featured-image {
-  width: 30%;
-  height: auto;
+  width: 15%;
+  height: 15%;
 }
 
 .restaurant-image {
   width: 30%;
-  height: auto;
+  height: 30%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -109,4 +114,17 @@ h6 {
 .cell,
 .column {
   text-align: center;
+}
+
+.restaurant-show-image {
+  width: 15rem;
+  height: auto;
+}
+
+h3, h5, h6, p {
+  color: $logo-blue;
+}
+
+.fa-solid, .fa-star-half-stroke, .fa-regular, .fa-star {
+  color: $logo-orange;
 }

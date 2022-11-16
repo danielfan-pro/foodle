@@ -21,7 +21,7 @@ const RestaurantTile = (props) => {
           {ConvertRatingToStar.convert(props.restaurant.rating)}
           <div className="price">{props.restaurant.price}</div>
         </div>
-        <div>{categories}</div>
+        <div><p>{categories}</p></div>
         <img src={props.restaurant.image_url} className="restaurant-image" />
       </Link>
     </div>

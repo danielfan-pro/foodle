@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react"
 import RestaurantShow from "./RestaurantShow"
 
 const RestaurantShowContainer = (props) => {
-  const [restaurant, setRestaurant] = useState({})
+  const [restaurant, setRestaurant] = useState({
+    categories: [],
+    location: {
+      display_address: []
+    }
+  })
 
   const restaurantId = props.match.params.id
   

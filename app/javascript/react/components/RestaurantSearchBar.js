@@ -65,7 +65,7 @@ const RestaurantSearchBar = (props) => {
           />
 
           <div className="input-group-button">
-            <input type="submit" value="Search" className="button"/>
+            <input type="submit" value="Search" className="button clear"/>
           </div>
         </div>
       </form>

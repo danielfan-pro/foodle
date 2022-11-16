@@ -20,8 +20,8 @@ const RestaurantFeatured = (props) => {
           <h5>{props.restaurantFeatured.name}</h5>
           {ConvertRatingToStar.convert(props.restaurantFeatured.rating)}
           <div className="categories-price">
-            <div className="price">{props.restaurantFeatured.price}</div>
-            <div>{categories}</div>
+            <div className="price"><p>{props.restaurantFeatured.price}</p></div>
+            <div><p>{categories}</p></div>
           </div>
           <img
             src={props.restaurantFeatured.image_url}
