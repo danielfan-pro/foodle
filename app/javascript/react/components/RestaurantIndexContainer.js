@@ -16,6 +16,7 @@ const RestaurantIndexContainer = () => {
     }
   })
   const [restaurantOthers, setRestaurantOthers] = useState([])
+  const [displayLogo, setDisplayLogo] = useState("show")
 
   // const restaurantTiles = restaurantOthers.map((restaurant) => {
   //   <RestaurantTile
@@ -30,7 +31,7 @@ const RestaurantIndexContainer = () => {
   return (
     <div>
       <Link to="/">
-        <div className="logo-main">
+        <div className={`logo-main ${displayLogo}`}>
           <img
             src="https://foodle-development.s3.amazonaws.com/foodle+logo+long.png"
             alt="foodle logo"
@@ -41,6 +42,7 @@ const RestaurantIndexContainer = () => {
       <RestaurantSearchBar
         setRestaurantFeatured={setRestaurantFeatured}
         setRestaurantOthers={setRestaurantOthers}
+        setDisplayLogo={setDisplayLogo}
       />
       <RestaurantFeatured
         restaurantFeatured={restaurantFeatured}  

@@ -5,6 +5,7 @@ const RestaurantSearchBar = (props) => {
     location: "",
     item: "",
   })
+  
 
   const handleChange = (event) => {
     setSearchParams({
@@ -35,6 +36,7 @@ const RestaurantSearchBar = (props) => {
       
       props.setRestaurantFeatured(responseBody.restaurant_featured)
       props.setRestaurantOthers(responseBody.restaurant_others)
+      props.setDisplayLogo("hide")
 
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
@@ -42,8 +44,8 @@ const RestaurantSearchBar = (props) => {
   }
 
   return (
-    <div>
-      <form className="home-page-search-bar" onSubmit={handleSubmit}>
+    <div className="search-bar" >
+      <form onSubmit={handleSubmit}>
         <div className="input-group">
           <input
             type="text"
@@ -63,7 +65,7 @@ const RestaurantSearchBar = (props) => {
           />
 
           <div className="input-group-button">
-            <input type="submit" value="Search" className="button" />
+            <input type="submit" value="Search" className="button"/>
           </div>
         </div>
       </form>

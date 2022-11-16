@@ -4,6 +4,7 @@
   background-color: #ffffff;
   border-bottom: 1px solid #b0b0b0;
 }
+
 .profile-icon {
   width: 2rem;
   height: 2rem;
@@ -28,6 +29,10 @@
   height: auto;
 }
 
+.search-bar {
+  padding-top: 3rem;
+}
+
 .input-group {
   width: 60%;
   margin-left: auto;
@@ -40,7 +45,7 @@
   align-items: center;
 }
 
-.restaurant-featured-image{
+.restaurant-featured-image {
   width: 25%;
   height: auto;
 }
