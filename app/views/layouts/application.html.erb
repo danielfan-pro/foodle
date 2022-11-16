@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <%= render 'application/favicon' %>
 </head>
 <body>
   
   <nav class="top-bar">
-    <h1><a href="/">Foodle</a></h1>
+    <a href="/"><%= image_tag("foodle logo long.png", alt: "logo", :class => "logo-nav-bar") %></a>
 
     <section class="top-bar-section">
       <ul class="right">

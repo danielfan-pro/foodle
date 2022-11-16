@@ -1,9 +1,46 @@
 @import "colors";
 
+.top-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #b0b0b0;
+}
 .profile-icon {
   width: 2rem;
   height: 2rem;
   margin-right: 1rem;
   border-radius: 50%;
   margin-left: 1rem;
+}
+
+.logo-nav-bar {
+  width: 5rem;
+  height: auto;
+}
+
+.logo-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-main-search {
+  width: 25%;
+  height: auto;
+}
+
+.input-group {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.restaurant-featured {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.restaurant-featured-image{
+  width: 25%;
+  height: auto;
 }
