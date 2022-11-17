@@ -19,7 +19,7 @@ ul.right {
   margin: 0.5rem;
 }
 
-.button.clear{
+.button.clear {
   color: $logo-blue;
 }
 
@@ -121,10 +121,25 @@ h6 {
   height: auto;
 }
 
-h3, h5, h6, p {
+h3,
+h5,
+h6,
+p {
   color: $logo-blue;
 }
 
-.fa-solid, .fa-star-half-stroke, .fa-regular, .fa-star {
+.fa-solid,
+.fa-star-half-stroke,
+.fa-regular,
+.fa-star {
   color: $logo-orange;
+}
+
+.devise-form {
+  margin: auto;
+  width: 17%;
+}
+
+.form-header {
+  text-align: center;
 }

@@ -1,5 +1,5 @@
-<h2>Sign up</h2>
-
+<h2 class="form-header">Sign up</h2>
+<div class="devise-form">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -37,3 +37,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

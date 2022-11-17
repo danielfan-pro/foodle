@@ -10,4 +10,8 @@ class ApplicationController < ApiController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :profile_photo])
   end
 
+  def after_sign_in_path_for(resource)
+    restaurants_path
+  end
+
 end
