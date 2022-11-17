@@ -4,7 +4,8 @@ class Api::V1::RestaurantsController < ApiController
 
   def show
     search_restaurant_hash = YelpService.business(params[:id])
-    render json: {restaurant: search_restaurant_hash}
+    reviews = Review.where(yelp_restaurant_id: params[:id])
+    render json: {restaurant: search_restaurant_hash, reviews: reviews}
   end
 
   def search
