@@ -13,21 +13,20 @@ const RestaurantShow = (props) => {
   categories = categoriesArray.join(", ")
 
   return (
-    <div>
-      <div className="grid-x grid-margin-x">
-        <div className="cell small-12 medium-8 large-8">
-          <h3>{props.restaurant.name}</h3>
-          {ConvertRatingToStar.convert(props.restaurant.rating)}
-          <div className="price">{props.restaurant.price}</div>
-          <div><p>{categories}</p></div>
-          <div><p>{props.restaurant.display_phone}</p></div>
-          <div><p>{props.restaurant.location.display_address.join()}</p></div>
-          <img
-            src={props.restaurant.image_url}
-            className="restaurant-show-image"
-          />
-        </div>
+    <div className="cell small-12 medium-8 large-8">
+      <h3>{props.restaurant.name}</h3>
+      {ConvertRatingToStar.convert(props.restaurant.rating)}
+      <div className="price">{props.restaurant.price}</div>
+      <div>
+        <p>{categories}</p>
       </div>
+      <div>
+        <p>{props.restaurant.display_phone}</p>
+      </div>
+      <div>
+        <p>{props.restaurant.location.display_address.join()}</p>
+      </div>
+      <img src={props.restaurant.image_url} className="restaurant-show-image" />
     </div>
   )
 }
