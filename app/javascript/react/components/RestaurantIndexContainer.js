@@ -16,7 +16,7 @@ const RestaurantIndexContainer = () => {
   const [displayLogo, setDisplayLogo] = useState("show")
 
   const restaurantTiles = restaurantOthers.map((restaurant) => {
-    return <RestaurantTile restaurant={restaurant} />
+    return <RestaurantTile key={restaurant.id} restaurant={restaurant} />
   })
 
   return (
