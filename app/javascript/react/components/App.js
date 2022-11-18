@@ -12,7 +12,6 @@ export const App = () => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/restaurants" component={RestaurantIndexContainer} />
         <Route exact path="/restaurants/:id" component={RestaurantShowContainer} />
-        <Route exact path="/maps" component={GoogleMapLoader} />
       </Switch>
     </BrowserRouter>
   )
