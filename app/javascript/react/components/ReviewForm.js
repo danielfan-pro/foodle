@@ -91,7 +91,7 @@ const ReviewForm = (props) => {
           <ErrorList errors={errors} />
 
           <label htmlFor="title">
-            Review Headline
+            Food Name
             <input
               id="title"
               type="text"
@@ -102,7 +102,7 @@ const ReviewForm = (props) => {
           </label>
 
           <label htmlFor="body">
-            Review Body
+            Comment
             <textarea
               id="body"
               rows="4"
@@ -114,7 +114,7 @@ const ReviewForm = (props) => {
           </label>
 
           <label htmlFor="rating">
-            Review Rating
+            Rating
             <input
               id="rating"
               type="number"
@@ -130,7 +130,7 @@ const ReviewForm = (props) => {
                 <section>
                   <div {...getRootProps()}>
                     <input {...getInputProps()} />
-                    <p>Drag image here, or click to select files</p>
+                    <p>Drag image here, or click to select image to upload</p>
                   </div>
                 </section>
               )}

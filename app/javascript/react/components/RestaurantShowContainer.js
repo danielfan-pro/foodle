@@ -17,9 +17,8 @@ const RestaurantShowContainer = (props) => {
   })
   const [reviews, setReviews] = useState([])
 
-  const [signedIn, setSignedIn] = useState(false)
+  // const [signedIn, setSignedIn] = useState(false)
 
-  let reviewButton = "show"
   const restaurantId = props.match.params.id
 
   const getRestaurant = async () => {
@@ -32,9 +31,9 @@ const RestaurantShowContainer = (props) => {
         throw error
       }
       const responseBody = await response.json()
-      
+
       setRestaurant(responseBody.restaurant)
-      setReviews(responseBody.reviews)
+      setReviews(responseBody.reviews.reviews)
 
       // if (responseBody.restaurant.current_user !== null) {
       //   setSignedIn(true)
@@ -60,7 +59,7 @@ const RestaurantShowContainer = (props) => {
         description={review.description}
         rating={review.rating}
         created_at={review.created_at}
-        // username={review.user.username}
+        username={review.user.username}
         photo={review.photo}
       />
     )
@@ -105,6 +104,7 @@ const RestaurantShowContainer = (props) => {
           />
         </div>
       </div>
+      <ReviewForm />
       {reviewTiles}
     </div>
   )
