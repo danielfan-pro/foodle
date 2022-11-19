@@ -186,10 +186,13 @@ p {
 .dark {
   background-color: #000000;
   color: #fff;
+  transition: background-color 0.4s ease-in-out;
 }
+
 .light {
   background-color: #ffffff;
   color: #333;
+  transition: background-color 0.4s ease-in-out;
 }
 
 .search-button-small {
