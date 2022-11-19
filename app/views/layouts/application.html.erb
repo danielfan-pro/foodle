@@ -12,18 +12,27 @@
   
   <nav class="top-bar">
     <a href="/restaurants"><%= image_tag("foodle transparent.png", alt: "logo", :class => "logo-nav-bar") %></a>
+ 
+    <div>
+      <% default_profile = '/Default-profile.png' %>
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button hollow"%>
-          <img class="profile-icon" src='<%= current_user.profile_photo %>' />
-        <%- else -%>
-          <%= link_to 'Sign Up', new_user_registration_path, :class => "button hollow" %>
-          <%= link_to 'Sign In', new_user_session_path, :class => "button hollow" %>
-        <%- end -%>
-      </ul>
-    </section>
+      <div class="top-bar-section">
+        <ul class="right">
+          <%- if current_user && current_user[:profile_photo].nil? == false-%>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button hollow"%>
+            <img class="profile-icon" src='<%= current_user.profile_photo %>' />
+           <%- elsif current_user && current_user[:profile_photo].nil? -%>  
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button hollow"%>
+              <img class="profile-icon" src='<%= default_profile %>' />
+          <%- else -%>
+            <%= link_to 'Sign Up', new_user_registration_path, :class => "button hollow" %>
+            <%= link_to 'Sign In', new_user_session_path, :class => "button hollow" %>
+          <%- end -%>
+        </ul>
+      </div>
+
+    </div>
+
   </nav>
 
   <%- flash.each do |key, value| -%>

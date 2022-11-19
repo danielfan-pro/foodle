@@ -61,10 +61,39 @@
 #     "display_phone"=>"(718) 599-0002",
 #     "distance"=>7480.6441762011655},
 
+user_admin = User.create(
+  email: "admin@email.com",
+  password: ENV["ADMIN_PASSWORD"],
+  username: "admin",
+  role: "admin"
+)
+
+user_1 = User.create(
+  email: "user1@email.com",
+  password: ENV["USER1_PASSWORD"],
+  username: "User1",
+  role: "member"
+)
+
+user_2 = User.create(
+  email: "user2@email.com",
+  password: ENV["USER2_PASSWORD"],
+  username: "User2",
+  role: "member"
+)
+
 review_1 = Review.find_or_create_by(
   title: "Biang Biang Noodle",
   description: "Delicious Spicy Noodle",
   rating: 5,
-  user_id: 3,
+  user_id: 1,
+  yelp_restaurant_id: "Khek1DXE1b9jPRSQkKLdhQ"
+)
+
+review_2 = Review.find_or_create_by(
+  title: "Pork Stew Rougamo",
+  description: "Taste so good!",
+  rating: 5,
+  user_id: 2,
   yelp_restaurant_id: "Khek1DXE1b9jPRSQkKLdhQ"
 )
