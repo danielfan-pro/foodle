@@ -7,7 +7,7 @@ const HomePage = () => {
       <Link to="/restaurants">
         <div className="logo-main">
           <img
-            src="https://foodle-development.s3.amazonaws.com/foodle+logo+long.png"
+            src="https://foodle-development.s3.amazonaws.com/foodle+transparent.png"
             alt="foodle logo"
             className="logo-main-search"
           />
