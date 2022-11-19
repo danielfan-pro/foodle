@@ -1,24 +1,35 @@
-# README
+<h1 align="center">Foodle</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p align="center">
+  <img src="/app/assets/images/foodle transparent.png" alt="Foodle logo" width="100px" height="100px"/>
 
-Things you may want to cover:
+<i>Foodle is a site that can help users find place for dining by simply providing a location, and optionally food category. The site has pages devoted to individual restaurants, where users can submit a review of the food they like, using a one to five start rating scale.</i>
+<br>
 
-* Ruby version
+</p>
 
-* System dependencies
+<p align="center">
+  <a href="https://foodle.onrender.com"><strong>foodle.onrender.com</strong></a>
+  <br>
+</p>
 
-* Configuration
+## Development
 
-* Database creation
+- Backend: Ruby 2.7.3, Rails 5.2.5
+- Frontend: React
+- Database: PostgreSQL
+- Third party APIs: Yelp Fusion API, Google Maps API
 
-* Database initialization
+## Question
 
-* How to run the test suite
+Connect with the developer.
 
-* Services (job queues, cache servers, search engines, etc.)
+- [LinkedIn][linkedin]
+- [Email][email]
+- [GitHub][github]
 
-* Deployment instructions
+**Love Foodle? Give this repo a star :star: :arrow_up:.**
 
-* ...
+[linkedin]: https://www.linkedin.com/in/danielfanpro/
+[email]: mailto:danielfanpro@icloud.com
+[github]: https://github.com/danielfan-pro
