@@ -86,7 +86,7 @@ review_1 = Review.find_or_create_by(
   title: "Biang Biang Noodle",
   description: "Delicious Spicy Noodle",
   rating: 5,
-  user: user_1,
+  user_id: 1,
   yelp_restaurant_id: "Khek1DXE1b9jPRSQkKLdhQ"
 )
 
@@ -94,6 +94,6 @@ review_2 = Review.find_or_create_by(
   title: "Pork Stew Rougamo",
   description: "Taste so good!",
   rating: 5,
-  user: user_2,
+  user_id: 2,
   yelp_restaurant_id: "Khek1DXE1b9jPRSQkKLdhQ"
 )
