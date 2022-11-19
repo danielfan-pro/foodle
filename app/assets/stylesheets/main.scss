@@ -1,7 +1,7 @@
 @import "colors";
 
 .top-bar {
-  background-color: #ffffff;
+  background-color: #e2eff1;
   border-bottom: 1px solid #b0b0b0;
   padding: 0;
   padding-bottom: 0.5rem;
@@ -13,8 +13,7 @@ ul.right {
 }
 
 .top-bar ul {
-  background-color: #ffffff;
-  
+  background-color: #e2eff1;
 }
 
 .button {
@@ -182,4 +181,23 @@ p {
 
 .username {
   font-weight: bold;
+}
+
+.dark {
+  background-color: #000000;
+  color: #fff;
+}
+.light {
+  background-color: #ffffff;
+  color: #333;
+}
+
+.search-button-small {
+  padding-left: 5rem;
+}
+
+.dark-mode-toggle {
+  float: right;
+  padding-right: 1.4rem;
+  padding-top: 1rem;
 }
