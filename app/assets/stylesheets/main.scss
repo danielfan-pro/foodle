@@ -203,3 +203,20 @@ p {
   padding-right: 1.4rem;
   padding-top: 1rem;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #e2eff1;
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.fa-github {
+  color: #000000;
+}
