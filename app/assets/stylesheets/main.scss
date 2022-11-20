@@ -205,7 +205,7 @@ p {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -219,4 +219,8 @@ p {
 
 .fa-github {
   color: #000000;
+}
+
+.extra-padding {
+  margin-bottom: 5rem;
 }

@@ -106,6 +106,7 @@ const RestaurantShowContainer = (props) => {
       </div>
       <ReviewForm />
       {reviewTiles}
+      <div className="extra-padding"></div>
     </div>
   )
 }
