@@ -39,6 +39,7 @@ const RestaurantIndexContainer = () => {
         <RestaurantFeatured restaurantFeatured={restaurantFeatured} />
       ) : null}
       <div className="grid-x grid-margin-x">{restaurantTiles}</div>
+      <div className="extra-padding"></div>
     </div>
   )
 }
