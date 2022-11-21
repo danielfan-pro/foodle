@@ -3,7 +3,8 @@
 .top-bar {
   background-color: #303030;
   border-bottom: 1px solid #b0b0b0;
-  padding: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
   padding-bottom: 0.5rem;
   text-align: center;
 }
@@ -44,15 +45,12 @@ ul.right {
   border-radius: 1rem;
 }
 
-.logo-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .logo-main-search {
   width: 25%;
   height: auto;
+  display: block;
+  margin: auto;
+  padding-left: 3.5rem;
 }
 
 .search-bar {
@@ -99,10 +97,6 @@ ul.right {
 h5,
 h6 {
   font-weight: bold;
-}
-
-.categories-price {
-  display: inline;
 }
 
 .price {
@@ -154,7 +148,7 @@ p {
 
 .form-header {
   text-align: center;
-  color:$logo-blue;
+  color: $logo-blue;
 }
 
 #error_explanation {
@@ -164,23 +158,30 @@ p {
 
 .review-form-div {
   margin: auto;
-  width: 17%;
+  width: 65%;
 }
 
 .review-button {
   margin-top: 1rem;
 }
 
-.dropzone {
+.search-button {
+  display: block;
+  margin: auto;
+  font-weight: bolder;
+}
+
+.drop-zone {
   text-align: center;
   padding: 3rem;
   border: 0.063rem grey dashed;
   background: #ffffff;
+  margin-top: 3rem;
 }
 
 .maps {
   display: block;
-  padding-top: 3rem;
+  padding-top: 1rem;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
@@ -188,6 +189,15 @@ p {
 
 .username {
   font-weight: bold;
+}
+
+.restaurant-stars {
+  display: inline-block;
+  margin: auto;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .dark {
@@ -208,7 +218,7 @@ p {
 
 .dark-mode-toggle {
   float: right;
-  padding-right: 1.4rem;
+  padding-right: 3.5rem;
   padding-top: 1rem;
 }
 
@@ -262,6 +272,94 @@ label {
   font-size: larger;
 }
 
+.review-text-long {
+  color: $logo-orange;
+  padding-top: 2rem;
+}
 .review-text {
-  color:$logo-orange
+  color: $logo-orange;
+}
+
+.click-here {
+  color: #25606e;
+  text-decoration: underline;
+}
+
+.click-here:hover {
+  color: $logo-orange;
+  text-decoration: underline;
+}
+
+.home-images {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+}
+
+.home-images:hover {
+  transform: scaleX(1.2) scaleY(1.2) scaleZ(1);
+  transition: transform 1.6s ease 0s;
+  box-shadow: 3px #b0b0b0;
+}
+
+.featured-recommendation {
+  color: $logo-orange;
+  font-weight: bolder;
+}
+
+.alternative-recommendations {
+  color: $logo-orange;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.restaurant-address {
+  padding-top: 2rem;
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset,
+label {
+  margin: 0;
+  padding: 0;
+}
+
+.rating {
+  float: left;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label {
+  color: $logo-orange;
+} /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label {
+  color: $logo-orange;
+}
+
+.rating-stars {
+  display: inline-block;
 }

@@ -27,18 +27,20 @@ user_2 = User.create(
   role: "member"
 )
 
-review_1 = Review.find_or_create_by(
+Review.delete_all
+
+review_1 = Review.create(
   title: "Biang Biang Noodle",
   description: "Delicious Spicy Noodle",
   rating: 5,
-  user_id: 1,
+  user: User.first,
   yelp_restaurant_id: "Khek1DXE1b9jPRSQkKLdhQ"
 )
 
-review_2 = Review.find_or_create_by(
+review_2 = Review.create(
   title: "Pork Stew Rougamo",
   description: "Taste so good!",
   rating: 5,
-  user_id: 2,
+  user: User.last,
   yelp_restaurant_id: "Khek1DXE1b9jPRSQkKLdhQ"
 )

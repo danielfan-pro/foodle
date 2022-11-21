@@ -133,18 +133,52 @@ const ReviewForm = (props) => {
             />
           </label>
 
-          <label htmlFor="rating">
-            Rating
-            <input
-              id="rating"
-              type="number"
-              name="rating"
-              value={newReview.rating}
-              onChange={handleFormChange}
-            />
-          </label>
+          <label htmlFor="rating">Rating</label>
 
-          <div className="dropzone">
+          <fieldset className="rating">
+            <input
+              type="radio"
+              id="star5"
+              name="rating"
+              value="5"
+              onClick={handleFormChange}
+            />
+            <label htmlFor="star5"></label>
+            <input
+              type="radio"
+              id="star4"
+              name="rating"
+              value="4"
+              onClick={handleFormChange}
+            />
+            <label htmlFor="star4"></label>
+            <input
+              type="radio"
+              id="star3"
+              name="rating"
+              value="3"
+              onClick={handleFormChange}
+            />
+            <label htmlFor="star3"></label>
+            <input
+              type="radio"
+              id="star2"
+              name="rating"
+              value="2"
+              onClick={handleFormChange}
+            />
+            <label htmlFor="star2"></label>
+            <input
+              type="radio"
+              id="star1"
+              name="rating"
+              value="1"
+              onClick={handleFormChange}
+            />
+            <label htmlFor="star1"></label>
+          </fieldset>
+
+          <div className="drop-zone">
             <Dropzone onDrop={handleFileUpload}>
               {({ getRootProps, getInputProps }) => (
                 <section>
