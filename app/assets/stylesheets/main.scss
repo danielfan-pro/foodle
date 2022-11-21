@@ -1,7 +1,7 @@
 @import "colors";
 
 .top-bar {
-  background-color: #e2eff1;
+  background-color: #303030;
   border-bottom: 1px solid #b0b0b0;
   padding: 0;
   padding-bottom: 0.5rem;
@@ -13,7 +13,7 @@ ul.right {
 }
 
 .top-bar ul {
-  background-color: #e2eff1;
+  background-color: #303030;
 }
 
 .button {
@@ -183,7 +183,7 @@ p {
 }
 
 .dark {
-  background-color: #000000;
+  background-color: #303030;
   color: #fff;
   transition: background-color 0.4s ease-in-out;
 }
@@ -209,7 +209,7 @@ p {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #e2eff1;
+  background-color: #303030;
   color: #ffffff;
   text-align: center;
   padding-left: 1rem;
@@ -217,10 +217,30 @@ p {
   padding-bottom: 1rem;
 }
 
+.fa-linkedin {
+  font-size: x-large;
+}
+
 .fa-github {
-  color: #000000;
+  color: #ffffff;
+  font-size: x-large;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.fa-envelop {
+  font-size: xx-large;
 }
 
 .extra-padding {
   margin-bottom: 5rem;
+}
+
+.text-center {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+label {
+  color: $logo-blue;
 }
