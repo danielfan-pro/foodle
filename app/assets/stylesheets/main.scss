@@ -126,6 +126,13 @@ h6 {
   border-radius: 1rem;
 }
 
+.restaurant-show-tile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 h3,
 h5,
 h6,
@@ -147,6 +154,7 @@ p {
 
 .form-header {
   text-align: center;
+  color:$logo-blue;
 }
 
 #error_explanation {
@@ -155,11 +163,8 @@ p {
 }
 
 .review-form-div {
-  margin-left: 5rem;
-}
-
-.button.write-review {
-  margin-right: 2rem;
+  margin: auto;
+  width: 17%;
 }
 
 .review-button {
@@ -175,7 +180,10 @@ p {
 
 .maps {
   display: block;
-  padding-top: 5rem;
+  padding-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .username {
@@ -243,4 +251,17 @@ p {
 
 label {
   color: $logo-blue;
+}
+
+.write-review {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.review-text {
+  color:$logo-orange
 }
