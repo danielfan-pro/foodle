@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 import HomePage from "./HomePage"
 import RestaurantIndexContainer from "./RestaurantIndexContainer"
 import RestaurantShowContainer from "./RestaurantShowContainer"
+import ReviewForm from "./ReviewForm"
 
 export const App = () => {
   const [theme, setTheme] = useState("light")
@@ -21,16 +22,20 @@ export const App = () => {
     }
   }
 
-
-
   useEffect(() => {
     document.body.className = theme
   }, [theme])
 
   return (
     <div className={`App ${theme}`}>
-      <i className={`fa-solid fa-moon dark-mode-toggle ${moonStatus}`} onClick={toggleTheme}></i>
-      <i className={`fa-solid fa-sun dark-mode-toggle ${sunStatus}`} onClick={toggleTheme}></i>
+      <i
+        className={`fa-solid fa-moon dark-mode-toggle ${moonStatus}`}
+        onClick={toggleTheme}
+      ></i>
+      <i
+        className={`fa-solid fa-sun dark-mode-toggle ${sunStatus}`}
+        onClick={toggleTheme}
+      ></i>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -38,6 +43,11 @@ export const App = () => {
             exact
             path="/restaurants"
             component={RestaurantIndexContainer}
+          />
+          <Route
+            exact
+            path="/restaurants/:id/reviews/new"
+            component={ReviewForm}
           />
           <Route
             exact

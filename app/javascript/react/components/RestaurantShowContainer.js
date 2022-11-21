@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import RestaurantShow from "./RestaurantShow"
 import GoogleMapLoader from "./GoogleMapLoader"
-import ReviewForm from "./ReviewForm"
 import ReviewTile from "./ReviewTile"
 
 const RestaurantShowContainer = (props) => {
@@ -17,9 +16,12 @@ const RestaurantShowContainer = (props) => {
   })
   const [reviews, setReviews] = useState([])
 
-  // const [signedIn, setSignedIn] = useState(false)
+  const [signedIn, setSignedIn] = useState(false)
 
   const restaurantId = props.match.params.id
+
+  let reviewText = "show"
+  let reviewButton = "hide"
 
   const getRestaurant = async () => {
     try {
@@ -35,17 +37,18 @@ const RestaurantShowContainer = (props) => {
       setRestaurant(responseBody.restaurant)
       setReviews(responseBody.reviews.reviews)
 
-      // if (responseBody.restaurant.current_user !== null) {
-      //   setSignedIn(true)
-      // }
+      if (responseBody.current_user !== null) {
+        setSignedIn(true)
+      }
     } catch (err) {
       console.error(`Error in Fetch: ${err.message}`)
     }
   }
 
-  // if (signedIn !== false) {
-  //   reviewButton = "show"
-  // }
+  if (signedIn !== false) {
+    reviewButton = "show"
+    reviewText = "hide"
+  }
 
   useEffect(() => {
     getRestaurant()
@@ -65,46 +68,30 @@ const RestaurantShowContainer = (props) => {
     )
   })
 
-  const addNewReview = async (payLoad) => {
-    let body = new FormData()
-    body.append("title", payLoad.title)
-    body.append("body", payLoad.body)
-    body.append("rating", payLoad.rating)
-    body.append("ride_id", rideId)
-    body.append("photo", payLoad.photo)
-
-    try {
-      const response = await fetch(
-        `/api/v1/restaurants/${restaurantId}/reviews`,
-        {
-          method: "POST",
-          credentials: "same-origin",
-          body: body,
-        }
-      )
-      if (!response.ok) {
-        const newError = new Error(`${response.status} ${response.statusText}`)
-        throw newError
-      }
-      const responseBody = await response.json()
-      setReviews([...reviews, responseBody.review])
-    } catch (err) {
-      console.error(`Error in Fetch: ${err.message}`)
-    }
-  }
-
   return (
     <div>
       <div className="grid-x grid-margin-x">
         <RestaurantShow restaurant={restaurant} />
-        <div className="cell large-4 medium-4 small-12 maps">
-          <GoogleMapLoader
-            latitude={restaurant.coordinates.latitude}
-            longitude={restaurant.coordinates.longitude}
-          />
+        <div className="cell large-4 medium-4 small-12">
+          <div className="maps">
+            <GoogleMapLoader
+              latitude={restaurant.coordinates.latitude}
+              longitude={restaurant.coordinates.longitude}
+            />
+          </div>
+          <div className={`${reviewText}`}>
+            <p className="review-text">Recommend the best food to others by leaving a review.</p>
+            <p className="review-text">
+              Click <a href="/users/sign_in">Sign In</a> to begin.
+            </p>
+          </div>
+          <a href={`/restaurants/${restaurantId}/reviews/new`}>
+            <button className={`button clear ${reviewButton} write-review`}>
+              Write Review
+            </button>
+          </a>
         </div>
       </div>
-      <ReviewForm />
       {reviewTiles}
       <div className="extra-padding"></div>
     </div>

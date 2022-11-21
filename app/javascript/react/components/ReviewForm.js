@@ -1,25 +1,20 @@
 import React, { useState } from "react"
 import Dropzone from "react-dropzone"
 import ErrorList from "./ErrorList"
+import { Redirect } from "react-router-dom"
 
 const ReviewForm = (props) => {
   const [errors, setErrors] = useState({})
-  const [displayForm, setDisplayForm] = useState("hide")
+  const [redirect, setRedirect] = useState(null)
   const [files, setFiles] = useState([])
   const [newReview, setNewReview] = useState({
     title: "",
-    body: "",
+    description: "",
     rating: "",
     photo: "",
   })
 
-  const displayReviewForm = () => {
-    if (displayForm === "hide") {
-      setDisplayForm("show")
-    } else {
-      setDisplayForm("hide")
-    }
-  }
+  const restaurantId = props.match.params.id
 
   const handleFileUpload = (acceptedFiles) => {
     setNewReview({
@@ -44,7 +39,7 @@ const ReviewForm = (props) => {
 
   const validForSubmission = () => {
     let submitErrors = {}
-    const requiredFields = ["title", "body", "rating"]
+    const requiredFields = ["title", "description", "rating"]
     requiredFields.forEach((field) => {
       if (newReview[field].trim() === "") {
         submitErrors = {
@@ -60,38 +55,63 @@ const ReviewForm = (props) => {
   const handleSubmitAddNewReview = (event) => {
     event.preventDefault()
     if (validForSubmission()) {
-      props.addNewReview(newReview)
+      addNewReview(newReview)
       setNewReview({
         title: "",
-        body: "",
+        description: "",
         rating: "",
         photo: "",
       })
-      setDisplayForm("hide")
       setFiles([])
     }
   }
 
+  const addNewReview = async (payLoad) => {
+    let body = new FormData()
+    body.append("title", payLoad.title)
+    body.append("description", payLoad.description)
+    body.append("rating", payLoad.rating)
+    body.append("yelp_restaurant_id", restaurantId)
+    body.append("photo", payLoad.photo)
+
+    try {
+      const response = await fetch(
+        `/api/v1/restaurants/${restaurantId}/reviews`,
+        {
+          method: "POST",
+          credentials: "same-origin",
+          body: body,
+        }
+      )
+      if (!response.ok) {
+        const newError = new Error(`${response.status} ${response.statusText}`)
+        throw newError
+      }
+      const responseBody = await response.json()
+
+      if (responseBody.review) {
+        setRedirect(responseBody.review.yelp_restaurant_id)
+      } else if (responseBody.error[0]) {
+        alert("Review was not added successfully")
+      }
+    } catch (err) {
+      console.error(`Error in Fetch: ${err.message}`)
+    }
+  }
+
+  if (redirect !== null) {
+    return <Redirect to={`/restaurants/${redirect}`} />
+  }
+
   return (
-    <div className="grid-x grid-margin-x">
-      <div
-        className={`cell review-form-div review-button ${props.reviewButton}`}
-      >
-        <button
-          className="button write-review"
-          type="button"
-          onClick={displayReviewForm}
-        >
-          Write Review
-        </button>
-        <form
-          onSubmit={handleSubmitAddNewReview}
-          className={`new-review ${displayForm}`}
-        >
+    <div>
+      <h2 className="form-header">Add a review for your favorite food</h2>
+      <div className="review-form-div">
+        <form onSubmit={handleSubmitAddNewReview} className="new-review">
           <ErrorList errors={errors} />
 
           <label htmlFor="title">
-            Food Name
+            Title
             <input
               id="title"
               type="text"
@@ -101,14 +121,14 @@ const ReviewForm = (props) => {
             />
           </label>
 
-          <label htmlFor="body">
-            Comment
+          <label htmlFor="description">
+            Description
             <textarea
-              id="body"
+              id="description"
               rows="4"
               type="text"
-              name="body"
-              value={newReview.body}
+              name="description"
+              value={newReview.description}
               onChange={handleFormChange}
             />
           </label>
@@ -142,7 +162,7 @@ const ReviewForm = (props) => {
           </div>
 
           <div className="submit-button">
-            <button className="button write-review">Submit Review</button>
+            <button className="button clear write-review">Submit</button>
           </div>
         </form>
       </div>

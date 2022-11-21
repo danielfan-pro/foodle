@@ -60,7 +60,7 @@ const RestaurantSearchBar = (props) => {
             name="item"
             value={searchParams.item}
             onChange={handleChange}
-            placeholder="chinese, burger, coffee"
+            placeholder="category (pizza, sandwich, etc)"
             className="input-group-field"
           />
 

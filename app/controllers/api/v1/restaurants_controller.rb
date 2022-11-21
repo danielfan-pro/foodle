@@ -3,8 +3,10 @@ class Api::V1::RestaurantsController < ApiController
   def show
     search_restaurant_hash = YelpService.business(params[:id])
     reviews = Review.where(yelp_restaurant_id: params[:id])
+
     render json: {
-      restaurant: search_restaurant_hash, 
+      restaurant: search_restaurant_hash,
+      current_user: current_user,
       reviews: ActiveModelSerializers::SerializableResource.new(reviews, each_serializer: ReviewSerializer)
     }
   end

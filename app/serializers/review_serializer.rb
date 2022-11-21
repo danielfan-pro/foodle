@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :description, :rating, :title, :photo, :created_at
+  attributes :id, :description, :rating, :title, :photo, :created_at, :yelp_restaurant_id
 
   def photo 
     if object.photo.blank? 
