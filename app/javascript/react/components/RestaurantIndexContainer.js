@@ -38,6 +38,13 @@ const RestaurantIndexContainer = () => {
       {restaurantFeatured.name ? (
         <RestaurantFeatured restaurantFeatured={restaurantFeatured} />
       ) : null}
+      <div className="alternative-recommendations">
+        {restaurantFeatured.name ? (
+          <h4 className="alternative-recommendations">
+            Alternative Recommendations
+          </h4>
+        ) : null}
+      </div>
       <div className="grid-x grid-margin-x">{restaurantTiles}</div>
       <div className="extra-padding"></div>
     </div>

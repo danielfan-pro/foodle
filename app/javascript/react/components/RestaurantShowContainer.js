@@ -72,7 +72,7 @@ const RestaurantShowContainer = (props) => {
     <div>
       <div className="grid-x grid-margin-x">
         <RestaurantShow restaurant={restaurant} />
-        <div className="cell large-4 medium-4 small-12">
+        <div className="cell">
           <div className="maps">
             <GoogleMapLoader
               latitude={restaurant.coordinates.latitude}
@@ -80,7 +80,7 @@ const RestaurantShowContainer = (props) => {
             />
           </div>
           <div className={`${reviewText}`}>
-            <p className="review-text">Recommend the best food to others by leaving a review.</p>
+            <p className="review-text-long">Recommend the best food to others by leaving a review.</p>
             <p className="review-text">
               Click <a href="/users/sign_in">Sign In</a> to begin.
             </p>

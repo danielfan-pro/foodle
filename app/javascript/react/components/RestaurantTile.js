@@ -17,10 +17,12 @@ const RestaurantTile = (props) => {
     <div className="cell medium-6 small-12 large-4">
       <Link to={`/restaurants/${props.restaurant.id}`}>
         <h6>{props.restaurant.name}</h6>
-        <div className="categories-price">
+
+        <div className="restaurant-stars">
           {ConvertRatingToStar.convert(props.restaurant.rating)}
-          <div className="price">{props.restaurant.price}</div>
         </div>
+        <div className="price">{props.restaurant.price}</div>
+
         <div>
           <p>{categories}</p>
         </div>

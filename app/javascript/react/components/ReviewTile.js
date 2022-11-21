@@ -14,7 +14,7 @@ const ReviewTile = (props) => {
 
   return (
     <div className="grid-x grid-margin-x">
-      <div className="small-12 medium-6 large-6 callout">
+      <div className="small-12 medium-8 medium-offset-2 large-8 large-offset-2 callout">
         <div className="grid-x">
           <div className="small-8 medium-8 large-8">
             <div className="grid-x">
@@ -31,7 +31,7 @@ const ReviewTile = (props) => {
             <p>{props.description}</p>
           </div>
 
-          <div className="grid-x small-4 medium-4 large-4">{reviewPhoto}</div>
+          <div className="grid-x small-4">{reviewPhoto}</div>
         </div>
       </div>
     </div>

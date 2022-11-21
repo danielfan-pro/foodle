@@ -5,7 +5,9 @@ const RestaurantSearchBar = (props) => {
     location: "",
     item: "",
   })
-  
+
+  const [searchButtonHome, setSearchButtonHome] = useState("show")
+  const [searchButtonOther, setSearchButtonOther] = useState("hide")
 
   const handleChange = (event) => {
     setSearchParams({
@@ -16,7 +18,7 @@ const RestaurantSearchBar = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    
+
     try {
       const response = await fetch("/api/v1/restaurants/search", {
         method: "POST",
@@ -33,18 +35,21 @@ const RestaurantSearchBar = (props) => {
         throw error
       }
       const responseBody = await response.json()
-      
+
       props.setRestaurantFeatured(responseBody.restaurant_featured)
       props.setRestaurantOthers(responseBody.restaurant_others)
       props.setDisplayLogo("hide")
 
+      setSearchButtonHome("hide")
+      setSearchButtonOther("show")
+      
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
   }
 
   return (
-    <div className="search-bar" >
+    <div className="search-bar">
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <input
@@ -64,10 +69,16 @@ const RestaurantSearchBar = (props) => {
             className="input-group-field"
           />
 
-          <div className="input-group-button">
-            <input type="submit" value="Search" className="button clear"/>
+          <div className={`input-group-button ${searchButtonOther}`}>
+            <input type="submit" value="Search" className="button clear" />
           </div>
         </div>
+
+        <input
+          type="submit"
+          value="Search"
+          className={`button clear search-button ${searchButtonHome}`}
+        />
       </form>
     </div>
   )
