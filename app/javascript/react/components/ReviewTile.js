@@ -1,17 +1,8 @@
 import React from "react"
 import ConvertRatingToStar from "./ConvertRatingToStar"
+import ModalImage from "react-modal-image"
 
 const ReviewTile = (props) => {
-  let reviewPhoto
-
-  if (props.photo !== null) {
-    reviewPhoto = (
-      <a href={props.photo} target="_blank">
-        <img src={props.photo} className="review-photo" />
-      </a>
-    )
-  }
-
   return (
     <div className="grid-x grid-margin-x">
       <div className="small-12 medium-8 medium-offset-2 large-8 large-offset-2 callout">
@@ -31,7 +22,9 @@ const ReviewTile = (props) => {
             <p>{props.description}</p>
           </div>
 
-          <div className="grid-x small-4">{reviewPhoto}</div>
+          <div className="grid-x small-4">
+            <ModalImage small={props.photo} medium={props.photo} />
+          </div>
         </div>
       </div>
     </div>

@@ -16,7 +16,9 @@ const RestaurantShow = (props) => {
     <div className="cell">
       <div className="restaurant-show-tile">
         <h3>{props.restaurant.name}</h3>
-        <div className="restaurant-stars">{ConvertRatingToStar.convert(props.restaurant.rating)}</div>
+        <div className="restaurant-stars">
+          {ConvertRatingToStar.convert(props.restaurant.rating)}
+        </div>
         <div className="price">{props.restaurant.price}</div>
         <div>
           <p>{categories}</p>

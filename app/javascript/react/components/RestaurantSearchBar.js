@@ -42,7 +42,6 @@ const RestaurantSearchBar = (props) => {
 
       setSearchButtonHome("hide")
       setSearchButtonOther("show")
-      
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
