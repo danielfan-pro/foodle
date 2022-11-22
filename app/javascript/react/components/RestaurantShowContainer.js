@@ -80,7 +80,9 @@ const RestaurantShowContainer = (props) => {
             />
           </div>
           <div className={`${reviewText}`}>
-            <p className="review-text-long">Recommend the best food to others by leaving a review.</p>
+            <p className="review-text-long">
+              Recommend the best food to others by leaving a review.
+            </p>
             <p className="review-text">
               Click <a href="/users/sign_in">Sign In</a> to begin.
             </p>

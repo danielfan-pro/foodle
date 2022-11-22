@@ -11,8 +11,12 @@
 <body>
   
   <nav class="top-bar">
-    <a href="/restaurants"><%= image_tag("foodle transparent.png", alt: "logo", :class => "logo-nav-bar") %></a>
- 
+
+    <div class="left">
+      <a href="/"><%= image_tag("foodle transparent.png", alt: "logo", :class => "logo-nav-bar") %></a>
+      <%= link_to 'Restaurants', restaurants_path, :class => "button hollow" %>
+    </div>
+
     <div>
       <% default_profile = '/Default-profile.png' %>
 

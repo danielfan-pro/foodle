@@ -22,6 +22,7 @@
     "react": "~16.8.0",
     "react-dom": "~16.8.0",
     "react-dropzone": "^14.2.3",
+    "react-modal-image": "^2.6.0",
     "react-router-dom": "5.0.0",
     "redbox-react": "1.6.0"
   },
