@@ -3,8 +3,8 @@ class Api::V1::ReviewsController < ApiController
   skip_before_action :verify_authenticity_token
 
   def create
-  review = Review.new(review_params)
-  review.user = current_user
+    review = Review.new(review_params)
+    review.user = current_user
 
     if review.save
       render json: review
