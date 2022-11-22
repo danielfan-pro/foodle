@@ -151,6 +151,7 @@ p {
 .form-header {
   text-align: center;
   color: $logo-blue;
+  padding-left: 3.5rem;
 }
 
 #error_explanation {
@@ -160,7 +161,7 @@ p {
 
 .review-form-div {
   margin: auto;
-  width: 65%;
+  width: 25%;
 }
 
 .review-button {
@@ -178,7 +179,7 @@ p {
   padding: 3rem;
   border: 0.063rem grey dashed;
   background: #ffffff;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .maps {
@@ -209,7 +210,7 @@ p {
 }
 
 .light {
-  background-color: #ffffff;
+  background-color: #eeeeee;
   color: #333;
   transition: background-color 0.4s ease-in-out;
 }
@@ -321,6 +322,10 @@ label {
   padding-top: 2rem;
 }
 
+.search-error {
+  text-align: center;
+}
+
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset,
@@ -330,7 +335,8 @@ label {
 }
 
 .rating {
-  float: left;
+  text-align: center;
+  margin: auto;
 }
 
 .rating > input {

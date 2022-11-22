@@ -105,7 +105,7 @@ const ReviewForm = (props) => {
 
   return (
     <div>
-      <h2 className="form-header">Add a review for your favorite food</h2>
+      <h2 className="form-header">Add a review</h2>
       <div className="review-form-div">
         <form onSubmit={handleSubmitAddNewReview} className="new-review">
           <ErrorList errors={errors} />

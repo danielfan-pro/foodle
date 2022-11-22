@@ -14,6 +14,9 @@ const RestaurantIndexContainer = () => {
   })
   const [restaurantOthers, setRestaurantOthers] = useState([])
   const [displayLogo, setDisplayLogo] = useState("show")
+  const [errors, setErrors] = useState("")
+  const [displayError, setDisplayError] = useState("hide")
+  const [displayResult, setDisplayResult] = useState("hide")
 
   const restaurantTiles = restaurantOthers.map((restaurant) => {
     return <RestaurantTile key={restaurant.id} restaurant={restaurant} />
@@ -30,23 +33,32 @@ const RestaurantIndexContainer = () => {
           />
         </div>
       </Link>
+
       <RestaurantSearchBar
         setRestaurantFeatured={setRestaurantFeatured}
         setRestaurantOthers={setRestaurantOthers}
         setDisplayLogo={setDisplayLogo}
+        errors={errors}
+        setErrors={setErrors}
+        displayError={displayError}
+        setDisplayError={setDisplayError}
+        setDisplayResult={setDisplayResult}
       />
-      {restaurantFeatured.name ? (
-        <RestaurantFeatured restaurantFeatured={restaurantFeatured} />
-      ) : null}
-      <div className="alternative-recommendations">
+
+      <div className={`${displayResult}`}>
         {restaurantFeatured.name ? (
-          <h4 className="alternative-recommendations">
-            Alternative Recommendations
-          </h4>
+          <RestaurantFeatured restaurantFeatured={restaurantFeatured} />
         ) : null}
+        <div className="alternative-recommendations">
+          {restaurantFeatured.name ? (
+            <h4 className="alternative-recommendations">
+              Alternative Recommendations
+            </h4>
+          ) : null}
+        </div>
+        <div className="grid-x grid-margin-x">{restaurantTiles}</div>
+        <div className="extra-padding"></div>
       </div>
-      <div className="grid-x grid-margin-x">{restaurantTiles}</div>
-      <div className="extra-padding"></div>
     </div>
   )
 }

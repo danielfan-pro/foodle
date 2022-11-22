@@ -29,7 +29,15 @@ const RestaurantSearchBar = (props) => {
         },
         body: JSON.stringify(searchParams),
       })
+
       if (!response.ok) {
+        if (response.status === 404) {
+          props.setErrors(
+            "Sorry, but we couldn't find anything based on the information you entered. Please try again."
+          )
+          props.setDisplayError("show")
+          props.setDisplayResult("hide")
+        }
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
         throw error
@@ -42,6 +50,8 @@ const RestaurantSearchBar = (props) => {
 
       setSearchButtonHome("hide")
       setSearchButtonOther("show")
+      props.setDisplayError("hide")
+      props.setDisplayResult("show")
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
@@ -79,6 +89,8 @@ const RestaurantSearchBar = (props) => {
           className={`button clear search-button ${searchButtonHome}`}
         />
       </form>
+
+      <h3 className={`search-error ${props.displayError}`}>{props.errors}</h3>
     </div>
   )
 }

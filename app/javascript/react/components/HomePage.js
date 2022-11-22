@@ -13,7 +13,7 @@ const HomePage = () => {
   const [restaurants, setRestaurants] = useState([])
 
   const searchParams = {
-    location: "boston",
+    location: "new york",
     item: "",
   }
 
