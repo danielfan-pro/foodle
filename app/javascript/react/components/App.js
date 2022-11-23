@@ -4,6 +4,7 @@ import HomePage from "./HomePage"
 import RestaurantIndexContainer from "./RestaurantIndexContainer"
 import RestaurantShowContainer from "./RestaurantShowContainer"
 import ReviewForm from "./ReviewForm"
+import UserProfileContainer from "./UserProfileContainer"
 
 export const App = () => {
   const [theme, setTheme] = useState("light")
@@ -54,6 +55,7 @@ export const App = () => {
             path="/restaurants/:id"
             component={RestaurantShowContainer}
           />
+          <Route exact path="/u/:username" component={UserProfileContainer} />
         </Switch>
       </BrowserRouter>
     </div>

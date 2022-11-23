@@ -5,14 +5,16 @@ Rails.application.routes.draw do
   get '/restaurants', to: 'homes#index'
   get '/restaurants/:id/reviews/new', to: 'homes#index'
   get '/restaurants/:id', to: 'homes#index'
-  get '/maps', to: 'homes#index'
+  get '/u/:username', to: 'homes#index'
   
   namespace :api do
     namespace :v1 do
+      resources :users, only: [:show]
       resources :restaurants, only: [:show] do
         resources :reviews, only: [:create]
       end
       post '/restaurants/search', to: 'restaurants#search'
+      resources :reviews, only: [:update]
     end
   end
 
