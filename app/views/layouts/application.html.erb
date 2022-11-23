@@ -24,10 +24,10 @@
         <ul class="right">
           <%- if current_user && current_user[:profile_photo].nil? == false-%>
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button hollow"%>
-            <img class="profile-icon" src='<%= current_user.profile_photo %>' />
+            <a href='/u/<%= current_user.username %>'><img class="profile-icon" src='<%= current_user.profile_photo %>' /></a>
            <%- elsif current_user && current_user[:profile_photo].nil? -%>  
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button hollow"%>
-              <img class="profile-icon" src='<%= default_profile %>' />
+              <a href='/u/<%= current_user.username %>'><img class="profile-icon" src='<%= default_profile %>' /></a>
           <%- else -%>
             <%= link_to 'Sign Up', new_user_registration_path, :class => "button hollow" %>
             <%= link_to 'Sign In', new_user_session_path, :class => "button hollow" %>
