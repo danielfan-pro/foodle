@@ -20,6 +20,11 @@ const ReviewTile = (props) => {
 
             <h6>{props.title}</h6>
             <p>{props.description}</p>
+
+            <div className={props.displayActionButtons}>
+              <button className="button hollow review-action">Edit</button>
+              <button className="button hollow review-action">Delete</button>
+            </div>
           </div>
 
           <div className="grid-x small-4">

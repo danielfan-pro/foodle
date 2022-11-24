@@ -64,6 +64,7 @@ const RestaurantShowContainer = (props) => {
         created_at={review.created_at}
         username={review.user.username}
         photo={review.photo}
+        displayActionButtons={review.display_action_buttons}
       />
     )
   })

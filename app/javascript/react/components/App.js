@@ -8,18 +8,15 @@ import UserProfileContainer from "./UserProfileContainer"
 
 export const App = () => {
   const [theme, setTheme] = useState("light")
-  const [moonStatus, setMoonStatus] = useState("show")
-  const [sunStatus, setSunStatus] = useState("hide")
+  const [status, setStatus] = useState("moon")
 
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark")
-      setMoonStatus("hide")
-      setSunStatus("show")
+      setStatus("sun")
     } else {
       setTheme("light")
-      setMoonStatus("show")
-      setSunStatus("hide")
+      setStatus("moon")
     }
   }
 
@@ -30,11 +27,7 @@ export const App = () => {
   return (
     <div className={`App ${theme}`}>
       <i
-        className={`fa-solid fa-moon dark-mode-toggle ${moonStatus}`}
-        onClick={toggleTheme}
-      ></i>
-      <i
-        className={`fa-solid fa-sun dark-mode-toggle ${sunStatus}`}
+        className={`fa-solid fa-${status} dark-mode-toggle`}
         onClick={toggleTheme}
       ></i>
       <BrowserRouter>

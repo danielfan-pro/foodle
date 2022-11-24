@@ -7,7 +7,7 @@ class Api::V1::RestaurantsController < ApiController
     render json: {
       restaurant: search_restaurant_hash,
       current_user: current_user,
-      reviews: ActiveModelSerializers::SerializableResource.new(reviews, each_serializer: ReviewSerializer)
+      reviews: ActiveModelSerializers::SerializableResource.new(reviews, each_serializer: ReviewSerializer, scope: current_user)
     }
   end
 
