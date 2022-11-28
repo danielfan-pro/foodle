@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :description, :rating, :title, :photo, :created_at, :yelp_restaurant_id, :display_action_buttons
+  attributes :id, :description, :rating, :title, :photo, :created_at, :yelp_restaurant_id, :display_action_buttons, :yelp_restaurant_name
 
   def photo 
     if object.photo.blank? 
@@ -19,6 +19,10 @@ class ReviewSerializer < ActiveModel::Serializer
     else 
       return "hide"
     end
+  end
+
+  def yelp_restaurant_name
+    return YelpService.business(object.yelp_restaurant_id)["name"]
   end
 
   belongs_to :user

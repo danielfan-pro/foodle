@@ -11,7 +11,6 @@ class ApplicationController < ApiController
   end
 
   def after_sign_in_path_for(resource)
-    session["user_return_to"] || restaurants_path
+    restaurants_path
   end
-
 end

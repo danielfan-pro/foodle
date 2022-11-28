@@ -28,6 +28,7 @@ user_2 = User.create(
 )
 
 Review.delete_all
+ReviewLike.delete_all
 
 review_1 = Review.create(
   title: "Biang Biang Noodle",
@@ -43,4 +44,14 @@ review_2 = Review.create(
   rating: 5,
   user: User.last,
   yelp_restaurant_id: "Khek1DXE1b9jPRSQkKLdhQ"
+)
+
+review_like_1 = ReviewLike.create(
+  user: User.first,
+  review: Review.first
+)
+
+review_like_2 = ReviewLike.create(
+  user: User.first,
+  review: Review.last
 )

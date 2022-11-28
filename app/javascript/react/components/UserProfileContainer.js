@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react"
+import UserProfileShow from "./UserProfileShow"
+import ReviewPostedTile from "./ReviewPostedTile"
 
 const UserProfileContainer = (props) => {
-  const [user, setUser] = useState({
-    profile_photo: {
-      url: null,
+  const [currentUser, setCurrentUser] = useState({
+    user: {
+      profile_photo: {
+        url: null,
+      },
+      reviews: [],
     },
   })
 
-  let profilePhoto = user.profile_photo.url
+  const [profileDisplay, setProfileDisplay] = useState("show")
+  const [postedReviewDisplay, setPostedReviewDisplay] = useState("hide")
+
+  let profilePhoto = currentUser.user.profile_photo.url
 
   const username = props.match.params.username
 
@@ -22,7 +30,7 @@ const UserProfileContainer = (props) => {
       }
       const responseBody = await response.json()
 
-      setUser(responseBody)
+      setCurrentUser(responseBody)
     } catch (err) {
       console.error(`Error in Fetch: ${err.message}`)
     }
@@ -32,16 +40,34 @@ const UserProfileContainer = (props) => {
     getUser()
   }, [])
 
-  if (user.profile_photo.url === null) {
+  if (currentUser.user.profile_photo.url === null) {
     profilePhoto =
       "https://foodle-production.s3.amazonaws.com/foodle+transparent.png"
+  }
+
+  const reviewsPosted = currentUser.user.reviews.map((review) => {
+    return <ReviewPostedTile key={review.id} review={review} />
+  })
+
+  const handleClickProfile = () => {
+    setProfileDisplay("show")
+    setPostedReviewDisplay("hide")
+  }
+
+  const handleClickPostedReviews = () => {
+    setProfileDisplay("hide")
+    setPostedReviewDisplay("show")
   }
 
   return (
     <div className="grid-x">
       <ul className="cell small-4 vertical menu">
         <li>
-          <a href="#" className="clear button profile-buttons">
+          <a
+            href="#"
+            className="clear button profile-buttons"
+            onClick={handleClickProfile}
+          >
             Profile
           </a>
         </li>
@@ -61,14 +87,24 @@ const UserProfileContainer = (props) => {
           </a>
         </li>
         <li>
-          <a href="#" className="clear button profile-buttons">
+          <a
+            href="#"
+            className="clear button profile-buttons"
+            onClick={handleClickPostedReviews}
+          >
             Posted Reviews
           </a>
         </li>
       </ul>
       <div className="cell auto">
-        <h5>Username: {user.username}</h5>
-        <img src={profilePhoto} className="user-profile" />
+        <div className="extra-padding"></div>
+        <div className={`${profileDisplay}`}>
+          <UserProfileShow
+            profilePhoto={profilePhoto}
+            username={currentUser.user.username}
+          />
+        </div>
+        <div className={`${postedReviewDisplay}`}>{reviewsPosted}</div>
       </div>
     </div>
   )
