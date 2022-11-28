@@ -5,6 +5,8 @@ const ReviewEditForm = (props) => {
   const [errors, setErrors] = useState({})
   const [currentReview, setCurrentReview] = useState(props.review)
 
+  let selected = props.review.rating
+
   const handleFormChange = (event) => {
     setCurrentReview({
       ...currentReview,
@@ -100,6 +102,7 @@ const ReviewEditForm = (props) => {
                 name="rating"
                 value="5"
                 onClick={handleFormChange}
+                defaultChecked={selected === 5}
               />
               <label htmlFor="star5"></label>
               <input
@@ -108,6 +111,7 @@ const ReviewEditForm = (props) => {
                 name="rating"
                 value="4"
                 onClick={handleFormChange}
+                defaultChecked={selected === 4}
               />
               <label htmlFor="star4"></label>
               <input
@@ -116,6 +120,7 @@ const ReviewEditForm = (props) => {
                 name="rating"
                 value="3"
                 onClick={handleFormChange}
+                defaultChecked={selected === 3}
               />
               <label htmlFor="star3"></label>
               <input
@@ -124,6 +129,7 @@ const ReviewEditForm = (props) => {
                 name="rating"
                 value="2"
                 onClick={handleFormChange}
+                defaultChecked={selected === 2}
               />
               <label htmlFor="star2"></label>
               <input
@@ -132,6 +138,7 @@ const ReviewEditForm = (props) => {
                 name="rating"
                 value="1"
                 onClick={handleFormChange}
+                defaultChecked={selected === 1}
               />
               <label htmlFor="star1"></label>
             </fieldset>
