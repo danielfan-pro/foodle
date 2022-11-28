@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import RestaurantShow from "./RestaurantShow"
 import GoogleMapLoader from "./GoogleMapLoader"
 import ReviewTile from "./ReviewTile"
+import ReviewEditForm from "./ReviewEditForm"
 
 const RestaurantShowContainer = (props) => {
   const [restaurant, setRestaurant] = useState({
@@ -15,9 +16,8 @@ const RestaurantShowContainer = (props) => {
     },
   })
   const [reviews, setReviews] = useState([])
-
   const [signedIn, setSignedIn] = useState(false)
-
+  const [selectedReviewId, setSelectedReviewId] = useState("")
   const restaurantId = props.match.params.id
 
   let reviewText = "show"
@@ -55,18 +55,18 @@ const RestaurantShowContainer = (props) => {
   }, [])
 
   const reviewTiles = reviews.map((review) => {
-    return (
-      <ReviewTile
-        key={review.id}
-        title={review.title}
-        description={review.description}
-        rating={review.rating}
-        created_at={review.created_at}
-        username={review.user.username}
-        photo={review.photo}
-        displayActionButtons={review.display_action_buttons}
-      />
-    )
+    if (selectedReviewId === review.id) {
+      return <ReviewEditForm key={review.id} review={review} />
+    } else {
+      return (
+        <ReviewTile
+          key={review.id}
+          review={review}
+          selectedReviewId={selectedReviewId}
+          setSelectedReviewId={setSelectedReviewId}
+        />
+      )
+    }
   })
 
   return (

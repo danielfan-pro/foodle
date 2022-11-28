@@ -41,19 +41,29 @@ const UserProfileContainer = (props) => {
     <div className="grid-x">
       <ul className="cell small-4 vertical menu">
         <li>
-          <a href="#" className="clear button profile-buttons">Profile</a>
+          <a href="#" className="clear button profile-buttons">
+            Profile
+          </a>
         </li>
         <li>
-          <a href="/users/edit" className="clear button profile-buttons">Password</a>
+          <a href="/users/edit" className="clear button profile-buttons">
+            Password
+          </a>
         </li>
         <li>
-          <a href="#" className="clear button profile-buttons">Liked Restaurants</a>
+          <a href="#" className="clear button profile-buttons">
+            Liked Restaurants
+          </a>
         </li>
         <li>
-          <a href="#" className="clear button profile-buttons">Liked Reviews</a>
+          <a href="#" className="clear button profile-buttons">
+            Liked Reviews
+          </a>
         </li>
         <li>
-          <a href="#" className="clear button profile-buttons">Posted Reviews</a>
+          <a href="#" className="clear button profile-buttons">
+            Posted Reviews
+          </a>
         </li>
       </ul>
       <div className="cell auto">

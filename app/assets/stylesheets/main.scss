@@ -324,6 +324,7 @@ label {
 
 .search-error {
   text-align: center;
+  color: $logo-orange;
 }
 
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
@@ -385,4 +386,18 @@ label {
 
 .button.hollow.review-action {
   color: $logo-orange;
+}
+
+.edit-review-header {
+  color: $logo-orange;
+  text-align: center;
+}
+
+.edit-review-form {
+  width: 64%;
+  margin: auto;
+}
+
+#edit-rating {
+  margin-right: auto;
 }
