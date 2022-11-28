@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         resources :reviews, only: [:create]
       end
       post '/restaurants/search', to: 'restaurants#search'
-      resources :reviews, only: [:update]
+      resources :reviews, only: [:update, :destroy]
     end
   end
 

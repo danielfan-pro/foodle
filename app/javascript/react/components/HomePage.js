@@ -70,6 +70,7 @@ const HomePage = () => {
         ) : null}
         {homePageImages}
       </div>
+      <div className="extra-padding"></div>
     </div>
   )
 }
