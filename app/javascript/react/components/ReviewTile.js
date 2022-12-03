@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import ConvertRatingToStar from "./ConvertRatingToStar"
 import ModalImage from "react-modal-image"
+import LikedReview from "./LikedReview"
 
 const ReviewTile = (props) => {
   const handleEditReview = () => {
@@ -32,6 +33,33 @@ const ReviewTile = (props) => {
       const responseBody = await response.json()
 
       if (responseBody.delete) {
+        window.location.reload()
+      } else if (responseBody.error[0]) {
+        alert("Review was not deleted successfully")
+      }
+    } catch (err) {
+      console.error(`Error in Fetch: ${err.message}`)
+    }
+  }
+
+  const likeReview = async (payLoad) => {
+    try {
+      const response = await fetch(`/api/v1/reviews/${props.review.id}`, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payLoad),
+      })
+      if (!response.ok) {
+        const newError = new Error(`${response.status} ${response.statusText}`)
+        throw newError
+      }
+      const responseBody = await response.json()
+
+      if (responseBody) {
         window.location.reload()
       } else if (responseBody.error[0]) {
         alert("Review was not deleted successfully")
@@ -76,6 +104,8 @@ const ReviewTile = (props) => {
               </button>
             </div>
           </div>
+
+          <LikedReview review={props.review} currentUser={props.currentUser} />
 
           <div className="grid-x small-4">
             <ModalImage

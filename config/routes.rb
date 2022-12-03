@@ -14,8 +14,13 @@ Rails.application.routes.draw do
         resources :reviews, only: [:create]
       end
       post '/restaurants/search', to: 'restaurants#search'
-      resources :reviews, only: [:update, :destroy]
+      resources :reviews, only: [:update, :destroy] do
+        resources :review_likes, only: [:create]
+      end
     end
   end
 
 end
+POST api/v1/reviews/1/review_likes
+params - review id
+controller - current_user

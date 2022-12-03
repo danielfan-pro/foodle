@@ -55,3 +55,13 @@ review_like_2 = ReviewLike.create(
   user: User.first,
   review: Review.last
 )
+
+review_like_3 = ReviewLike.create(
+  user: User.last,
+  review: Review.first
+)
+
+review_like_4 = ReviewLike.create(
+  user: User.last,
+  review: Review.last
+)

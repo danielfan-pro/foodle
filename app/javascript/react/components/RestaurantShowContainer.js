@@ -18,6 +18,7 @@ const RestaurantShowContainer = (props) => {
   const [reviews, setReviews] = useState([])
   const [signedIn, setSignedIn] = useState(false)
   const [selectedReviewId, setSelectedReviewId] = useState("")
+  const [currentUser, setCurrentUser] = useState({ id: null })
   const restaurantId = props.match.params.id
 
   let reviewText = "show"
@@ -37,8 +38,9 @@ const RestaurantShowContainer = (props) => {
       setRestaurant(responseBody.restaurant)
       setReviews(responseBody.reviews.reviews)
 
-      if (responseBody.current_user !== null) {
+      if (responseBody.current_user.id !== null) {
         setSignedIn(true)
+        setCurrentUser(responseBody.current_user)
       }
     } catch (err) {
       console.error(`Error in Fetch: ${err.message}`)
@@ -64,6 +66,7 @@ const RestaurantShowContainer = (props) => {
           review={review}
           selectedReviewId={selectedReviewId}
           setSelectedReviewId={setSelectedReviewId}
+          currentUser={currentUser}
         />
       )
     }
