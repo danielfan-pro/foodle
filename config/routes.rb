@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
 end
-POST api/v1/reviews/1/review_likes
-params - review id
-controller - current_user
+
+# Future work for liked restaurant
+# POST api/v1/reviews/1/review_likes
+# params - review id
+# controller - current_user

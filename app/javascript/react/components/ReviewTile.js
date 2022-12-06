@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import ConvertRatingToStar from "./ConvertRatingToStar"
 import ModalImage from "react-modal-image"
-import LikedReview from "./LikedReview"
+// import LikedReview from "./LikedReview"
 
 const ReviewTile = (props) => {
   const handleEditReview = () => {
@@ -105,7 +105,7 @@ const ReviewTile = (props) => {
             </div>
           </div>
 
-          <LikedReview review={props.review} currentUser={props.currentUser} />
+          {/* <LikedReview review={props.review} currentUser={props.currentUser} /> */}
 
           <div className="grid-x small-4">
             <ModalImage

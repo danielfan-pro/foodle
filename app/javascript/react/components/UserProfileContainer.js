@@ -77,16 +77,6 @@ const UserProfileContainer = (props) => {
           </a>
         </li>
         <li>
-          <a href="#" className="clear button profile-buttons">
-            Liked Restaurants
-          </a>
-        </li>
-        <li>
-          <a href="#" className="clear button profile-buttons">
-            Liked Reviews
-          </a>
-        </li>
-        <li>
           <a
             href="#"
             className="clear button profile-buttons"
@@ -95,6 +85,16 @@ const UserProfileContainer = (props) => {
             Posted Reviews
           </a>
         </li>
+        {/* <li>
+          <a href="#" className="clear button profile-buttons">
+            Liked Restaurants
+          </a>
+        </li>
+        <li>
+          <a href="#" className="clear button profile-buttons">
+            Liked Reviews
+          </a>
+        </li> */}
       </ul>
       <div className="cell auto">
         <div className="extra-padding"></div>
