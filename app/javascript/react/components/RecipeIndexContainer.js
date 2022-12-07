@@ -28,7 +28,7 @@ const RecipeIndexContainer = () => {
           />
         </div>
       </Link>
-      <h2 className="category-header">Recipes</h2>
+      <h2 className={`category-header ${displayLogo}`}>Recipes</h2>
       <RecipeSearchBar
         setRecipeFeatured={setRecipeFeatured}
         setRecipeOthers={setRecipeOthers}

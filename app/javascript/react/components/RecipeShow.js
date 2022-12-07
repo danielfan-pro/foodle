@@ -11,6 +11,8 @@ const RecipeShow = (props) => {
 
         <p className="recipe-text">Ready in {props.recipe.readyInMinutes} minutes</p>
         <p className="recipe-text">Serving {props.recipe.servings}</p>
+
+        <p>{props.recipe.summary}</p>
         <a href={`${props.recipe.sourceUrl}`}>
           Click here for the Instructions
         </a>

@@ -8,6 +8,7 @@ const RecipeShowContainer = (props) => {
     servings: "",
     image: "",
     sourceUrl: "",
+    summary: "",
   })
 
   const recipeId = props.match.params.id
