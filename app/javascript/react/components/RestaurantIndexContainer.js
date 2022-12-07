@@ -33,7 +33,7 @@ const RestaurantIndexContainer = () => {
           />
         </div>
       </Link>
-      <h2 className="category-header">Restaurants</h2>
+      <h2 className={`category-header ${displayLogo}`}>Restaurants</h2>
       <RestaurantSearchBar
         setRestaurantFeatured={setRestaurantFeatured}
         setRestaurantOthers={setRestaurantOthers}

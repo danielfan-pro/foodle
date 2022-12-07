@@ -140,6 +140,7 @@ h6 {
 
 .recipe-text {
   color: $logo-orange;
+  margin-top: 1rem;
 }
 
 .category-header {
@@ -426,4 +427,8 @@ label {
 
 .fa-heart {
   color: #f7afbd;
+}
+
+.recipe-instruction {
+  font-size: x-large;
 }
