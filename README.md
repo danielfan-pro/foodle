@@ -3,7 +3,7 @@
 <p align="center">
   <img src="/app/assets/images/foodle transparent.png" alt="Foodle logo" width="100px" height="100px"/>
 
-<i>Foodle is a site that can help users find place for dining by simply providing a location, and optionally food category. The site has pages devoted to individual restaurants, where users can submit a review of the food they like, using a one to five start rating scale.</i>
+<i>Foodle is a site that can help users find where for dining by simply providing a location, and optionally food category. In addition, now Foodle can help find recipes by providing a food category. The site has pages devoted to individual restaurants, where users can submit a review of the food they like, using a one to five start rating scale. Also pages devoted to individual recipes, and external links for detailed cooking instructions.</i>
 <br>
 
 </p>
