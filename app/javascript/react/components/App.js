@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import HomePage from "./HomePage"
 import RestaurantIndexContainer from "./RestaurantIndexContainer"
@@ -26,12 +27,18 @@ export const App = () => {
     document.body.className = theme
   }, [theme])
 
+  const toggleIcon = (
+    <i
+      className={`fa-solid fa-${status} dark-mode-toggle`}
+      onClick={toggleTheme}
+    ></i>
+  )
+
+  const toggleSlot = document.getElementById("theme-toggle-slot")
+
   return (
     <div className={`App ${theme}`}>
-      <i
-        className={`fa-solid fa-${status} dark-mode-toggle`}
-        onClick={toggleTheme}
-      ></i>
+      {toggleSlot ? createPortal(toggleIcon, toggleSlot) : toggleIcon}
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={HomePage} />

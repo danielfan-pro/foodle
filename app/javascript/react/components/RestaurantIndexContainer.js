@@ -5,7 +5,11 @@ import RestaurantFeatured from "./RestaurantFeatured"
 import RestaurantTile from "./RestaurantTile"
 import foodleTransparentLogo from "../../../assets/images/foodle transparent.png"
 
+const RESTAURANT_SEARCH_CACHE_KEY = "restaurantSearchCache"
+
 const RestaurantIndexContainer = () => {
+  const shouldReset =
+    new URLSearchParams(window.location.search).get("reset") === "1"
   const [restaurantFeatured, setRestaurantFeatured] = useState({
     name: "",
     image_url: "",
@@ -22,6 +26,35 @@ const RestaurantIndexContainer = () => {
   const restaurantTiles = restaurantOthers.map((restaurant) => {
     return <RestaurantTile key={restaurant.id} restaurant={restaurant} />
   })
+
+  React.useEffect(() => {
+    if (shouldReset) {
+      sessionStorage.removeItem(RESTAURANT_SEARCH_CACHE_KEY)
+      window.history.replaceState({}, "", window.location.pathname)
+      return
+    }
+
+    const cachedSearchRaw = sessionStorage.getItem(RESTAURANT_SEARCH_CACHE_KEY)
+    if (!cachedSearchRaw) {
+      return
+    }
+
+    try {
+      const cachedSearch = JSON.parse(cachedSearchRaw)
+      const featured = cachedSearch?.restaurant_featured
+      const others = cachedSearch?.restaurant_others
+
+      if (featured && Array.isArray(others)) {
+        setRestaurantFeatured(featured)
+        setRestaurantOthers(others)
+        setDisplayLogo("hide")
+        setDisplayResult("show")
+        setDisplayError("hide")
+      }
+    } catch (_error) {
+      sessionStorage.removeItem(RESTAURANT_SEARCH_CACHE_KEY)
+    }
+  }, [shouldReset])
 
   return (
     <div>

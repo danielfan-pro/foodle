@@ -5,7 +5,11 @@ import RecipeFeatured from "./RecipeFeatured"
 import RecipeTile from "./RecipeTile"
 import foodleTransparentLogo from "../../../assets/images/foodle transparent.png"
 
+const RECIPE_SEARCH_CACHE_KEY = "recipeSearchCache"
+
 const RecipeIndexContainer = () => {
+  const shouldReset =
+    new URLSearchParams(window.location.search).get("reset") === "1"
   const [displayLogo, setDisplayLogo] = useState("show")
   const [recipeFeatured, setRecipeFeatured] = useState({
     title: "",
@@ -17,6 +21,34 @@ const RecipeIndexContainer = () => {
   const recipeTiles = recipeOthers.map((recipe) => {
     return <RecipeTile key={recipe.id} recipe={recipe} />
   })
+
+  React.useEffect(() => {
+    if (shouldReset) {
+      sessionStorage.removeItem(RECIPE_SEARCH_CACHE_KEY)
+      window.history.replaceState({}, "", window.location.pathname)
+      return
+    }
+
+    const cachedSearchRaw = sessionStorage.getItem(RECIPE_SEARCH_CACHE_KEY)
+    if (!cachedSearchRaw) {
+      return
+    }
+
+    try {
+      const cachedSearch = JSON.parse(cachedSearchRaw)
+      const featured = cachedSearch?.recipe_featured
+      const others = cachedSearch?.recipe_others
+
+      if (featured && Array.isArray(others)) {
+        setRecipeFeatured(featured)
+        setRecipeOthers(others)
+        setDisplayLogo("hide")
+        setDisplayResult("show")
+      }
+    } catch (_error) {
+      sessionStorage.removeItem(RECIPE_SEARCH_CACHE_KEY)
+    }
+  }, [shouldReset])
 
   return (
     <div>

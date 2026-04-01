@@ -6,6 +6,9 @@
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
 }
 
@@ -13,6 +16,11 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.top-bar .top-bar-section {
+  display: flex;
+  align-items: center;
 }
 
 .top-bar .left a {
@@ -26,6 +34,46 @@
 
 ul.right {
   margin: 0;
+}
+
+.top-bar .top-bar-section .right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar .top-bar-section .right > li {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar .top-bar-section .right > li > a {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.theme-toggle-item {
+  min-width: 2rem;
+  justify-content: center;
+}
+
+.theme-toggle-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.nav-right .button.hollow {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .top-bar ul {
@@ -82,8 +130,13 @@ ul.right {
   padding-top: 2rem;
 }
 
-.input-group {
+.search-bar form {
   width: min(92vw, 38rem);
+  margin: 0 auto;
+}
+
+.input-group {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -119,12 +172,42 @@ ul.right {
   margin: 0 auto;
 }
 
+.restaurant-featured a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+}
+
+.restaurant-featured h5 {
+  margin: 0.1rem 0 0;
+  line-height: 1.2;
+}
+
+.restaurant-featured .restaurant-stars {
+  margin: 0;
+  line-height: 1;
+}
+
+.restaurant-featured .price {
+  margin: 0;
+  line-height: 1.1;
+  font-size: 2rem;
+}
+
+.restaurant-featured p {
+  margin: 0.1rem 0 0.15rem;
+  line-height: 1.25;
+  max-width: 34rem;
+}
+
 .restaurant-featured-image {
   width: min(92vw, 30rem);
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
-  margin: 0.8rem auto 0;
+  margin: 0.35rem auto 0;
   border-radius: 1rem;
 }
 
@@ -275,6 +358,34 @@ p {
   margin: auto;
 }
 
+.grid-x.grid-margin-x .cell > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.22rem;
+  text-decoration: none;
+}
+
+.grid-x.grid-margin-x .cell h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.grid-x.grid-margin-x .cell .restaurant-stars {
+  margin: 0;
+  line-height: 1;
+}
+
+.grid-x.grid-margin-x .cell .price {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.grid-x.grid-margin-x .cell p {
+  margin: 0.08rem 0 0.2rem;
+  line-height: 1.25;
+}
+
 .text-left {
   text-align: left;
 }
@@ -296,10 +407,16 @@ p {
 }
 
 .dark-mode-toggle {
-  float: right;
-  padding-right: 3.5rem;
-  padding-top: 1rem;
-  font-size: x-large;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .footer {
@@ -491,14 +608,17 @@ label {
 }
 
 @media screen and (max-width: 768px) {
+  .top-bar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .top-bar .top-bar-section .right {
+    gap: 0.9rem;
+  }
+
   .dark-mode-toggle {
-    float: none;
-    display: block;
-    width: fit-content;
-    margin: 0.35rem 1rem 1.1rem auto;
-    padding-right: 0;
-    padding-top: 0;
-    line-height: 1;
+    font-size: 1.45rem;
   }
 
   .logo-main-search {
@@ -540,6 +660,23 @@ label {
     max-width: min(94vw, 24rem);
   }
 
+  .restaurant-featured a {
+    gap: 0.2rem;
+  }
+
+  .restaurant-featured h5 {
+    margin-top: 0;
+  }
+
+  .restaurant-featured .price {
+    font-size: 1.8rem;
+  }
+
+  .restaurant-featured p {
+    margin-top: 0;
+    max-width: 94vw;
+  }
+
   .restaurant-featured-image {
     width: min(94vw, 24rem);
     aspect-ratio: 4 / 3;
@@ -548,5 +685,13 @@ label {
   .restaurant-image {
     width: min(72vw, 12rem);
     aspect-ratio: 4 / 3;
+  }
+
+  .grid-x.grid-margin-x .cell > a {
+    gap: 0.16rem;
+  }
+
+  .grid-x.grid-margin-x .cell p {
+    margin-bottom: 0.14rem;
   }
 }

@@ -1,13 +1,61 @@
 import React, { useState } from "react"
 
+const RESTAURANT_SEARCH_CACHE_KEY = "restaurantSearchCache"
+
 const RestaurantSearchBar = (props) => {
-  const [searchParams, setSearchParams] = useState({
-    location: "",
-    item: "",
+  const shouldReset =
+    new URLSearchParams(window.location.search).get("reset") === "1"
+
+  const [searchParams, setSearchParams] = useState(() => {
+    if (shouldReset) {
+      return {
+        location: "",
+        item: "",
+      }
+    }
+
+    const cachedSearchRaw = sessionStorage.getItem(RESTAURANT_SEARCH_CACHE_KEY)
+
+    if (cachedSearchRaw) {
+      try {
+        const cachedSearch = JSON.parse(cachedSearchRaw)
+        return {
+          location: cachedSearch?.searchParams?.location || "",
+          item: cachedSearch?.searchParams?.item || "",
+        }
+      } catch (_error) {
+        sessionStorage.removeItem(RESTAURANT_SEARCH_CACHE_KEY)
+      }
+    }
+
+    return {
+      location: "",
+      item: "",
+    }
   })
 
-  const [searchButtonHome, setSearchButtonHome] = useState("show")
-  const [searchButtonOther, setSearchButtonOther] = useState("hide")
+  const hasCachedSearchState = (() => {
+    if (shouldReset) {
+      return false
+    }
+    const cachedSearchRaw = sessionStorage.getItem(RESTAURANT_SEARCH_CACHE_KEY)
+    if (!cachedSearchRaw) {
+      return false
+    }
+    try {
+      JSON.parse(cachedSearchRaw)
+      return true
+    } catch (_error) {
+      return false
+    }
+  })()
+
+  const [searchButtonHome, setSearchButtonHome] = useState(
+    hasCachedSearchState ? "hide" : "show"
+  )
+  const [searchButtonOther, setSearchButtonOther] = useState(
+    hasCachedSearchState ? "show" : "hide"
+  )
 
   const handleChange = (event) => {
     setSearchParams({
@@ -70,6 +118,15 @@ const RestaurantSearchBar = (props) => {
       setSearchButtonOther("show")
       props.setDisplayError("hide")
       props.setDisplayResult("show")
+
+      sessionStorage.setItem(
+        RESTAURANT_SEARCH_CACHE_KEY,
+        JSON.stringify({
+          searchParams,
+          restaurant_featured: responseBody.restaurant_featured,
+          restaurant_others: responseBody.restaurant_others,
+        })
+      )
     } catch (error) {
       console.error(`Error in Fetch: ${error.message}`)
     }
