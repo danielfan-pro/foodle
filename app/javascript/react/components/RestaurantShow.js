@@ -5,33 +5,41 @@ const RestaurantShow = (props) => {
   let categoriesArray = []
   let categories = ""
 
-  props.restaurant.categories.forEach((category) => {
+  const categoriesSource = Array.isArray(props.restaurant?.categories)
+    ? props.restaurant.categories
+    : []
+
+  categoriesSource.forEach((category) => {
     categoriesArray.push(category.title)
     return categoriesArray
   })
 
   categories = categoriesArray.join(", ")
 
+  const displayAddress = Array.isArray(props.restaurant?.location?.display_address)
+    ? props.restaurant.location.display_address.join(", ")
+    : ""
+
   return (
     <div className="cell">
       <div className="restaurant-show-tile">
-        <h3>{props.restaurant.name}</h3>
+        <h3>{props.restaurant?.name || ""}</h3>
         <div className="restaurant-stars">
-          {ConvertRatingToStar.convert(props.restaurant.rating)}
+          {ConvertRatingToStar.convert(props.restaurant?.rating)}
         </div>
-        <div className="price">{props.restaurant.price}</div>
+        <div className="price">{props.restaurant?.price || ""}</div>
         <div>
           <p>{categories}</p>
         </div>
         <div>
-          <p>{props.restaurant.display_phone}</p>
+          <p>{props.restaurant?.display_phone || ""}</p>
         </div>
         <img
-          src={props.restaurant.image_url}
+          src={props.restaurant?.image_url}
           className="restaurant-show-image"
         />
         <div className="restaurant-address">
-          <p>{props.restaurant.location.display_address.join()}</p>
+          <p>{displayAddress}</p>
         </div>
       </div>
     </div>

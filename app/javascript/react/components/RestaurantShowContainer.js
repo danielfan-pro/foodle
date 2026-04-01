@@ -35,12 +35,20 @@ const RestaurantShowContainer = (props) => {
       }
       const responseBody = await response.json()
 
-      setRestaurant(responseBody.restaurant)
-      setReviews(responseBody.reviews.reviews)
+      const restaurantData = responseBody?.restaurant || responseBody
+      const reviewData = Array.isArray(responseBody?.reviews)
+        ? responseBody.reviews
+        : responseBody?.reviews?.reviews || []
+      const currentUserData = responseBody?.current_user
 
-      if (responseBody.current_user.id !== null) {
+      if (restaurantData) {
+        setRestaurant(restaurantData)
+      }
+      setReviews(reviewData)
+
+      if (currentUserData?.id != null) {
         setSignedIn(true)
-        setCurrentUser(responseBody.current_user)
+        setCurrentUser(currentUserData)
       }
     } catch (err) {
       console.error(`Error in Fetch: ${err.message}`)
