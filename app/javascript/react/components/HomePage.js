@@ -62,7 +62,7 @@ const HomePage = () => {
       </div>
 
       <p className="text-center">Trying to figure out what to eat?</p>
-      <Link to="/restaurants">
+      <Link to="/restaurants?reset=1">
         <h4 className="text-center click-here">Click here to begin.</h4>
       </Link>
       <div className="grid-x grid-margin-x">
