@@ -19,6 +19,13 @@ const RestaurantSearchBar = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
+    if (!searchParams.location.trim()) {
+      props.setErrors("Please enter a location.")
+      props.setDisplayError("show")
+      props.setDisplayResult("hide")
+      return
+    }
+
     try {
       const response = await fetch("/api/v1/restaurants/search", {
         method: "POST",
@@ -31,16 +38,27 @@ const RestaurantSearchBar = (props) => {
       })
 
       if (!response.ok) {
+        let responseBody = null
+        try {
+          responseBody = await response.json()
+        } catch (parseError) {
+          responseBody = null
+        }
+
         if (response.status === 404) {
           props.setErrors(
             "Sorry, but we couldn't find anything based on the information you entered. Please try again."
           )
-          props.setDisplayError("show")
-          props.setDisplayResult("hide")
+        } else {
+          props.setErrors(
+            responseBody?.error ||
+              "Restaurant search is temporarily unavailable. Please try again later."
+          )
         }
-        const errorMessage = `${response.status} (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw error
+
+        props.setDisplayError("show")
+        props.setDisplayResult("hide")
+        return
       }
       const responseBody = await response.json()
 

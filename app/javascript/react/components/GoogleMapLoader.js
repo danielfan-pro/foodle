@@ -1,32 +1,33 @@
 import React from "react"
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"
 
 const GoogleMapLoader = (props) => {
-  const containerStyle = {
-    height: "12rem",
+  const latitude = props.latitude
+  const longitude = props.longitude
+  const hasCoordinates = latitude !== undefined && longitude !== undefined
+
+  if (!hasCoordinates) {
+    return <p>Map unavailable for this restaurant.</p>
   }
 
-  const center = {
-    lat: props.latitude,
-    lng: props.longitude,
-  }
+  const query = `${latitude},${longitude}`
+  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${query}`
+  const embedLink = `https://maps.google.com/maps?q=${query}&z=15&output=embed`
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyDTLEaykBrmhn3ew3K-p_CGlD2s3eWtZpM">
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={15}
-        options={{
-          streetViewControl: false,
-          zoomControl: false,
-          mapTypeControl: false,
-          fullscreenControl: false,
-        }}
-      >
-        <Marker position={center} />
-      </GoogleMap>
-    </LoadScript>
+    <div>
+      <iframe
+        title="Restaurant location map"
+        src={embedLink}
+        width="100%"
+        height="192"
+        style={{ border: 0 }}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+      <a href={mapsLink} target="_blank" rel="noopener noreferrer">
+        Open in Google Maps
+      </a>
+    </div>
   )
 }
 

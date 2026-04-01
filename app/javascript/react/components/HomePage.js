@@ -54,7 +54,7 @@ const HomePage = () => {
     <div>
       <div className="logo-main">
         <img
-          src="https://foodle-development.s3.amazonaws.com/foodle+transparent.png"
+          src="/assets/foodle%20transparent.png"
           alt="foodle logo"
           className="logo-main-search"
         />

@@ -16,12 +16,12 @@
 ## 🚀 Programming
 
 - Backend: Ruby 2.7.3, Rails 5.2.5
-- Frontend: React
+- Frontend: React, Shakapacker (Webpack 5)
 - Database: PostgreSQL
 - Third party APIs: Yelp Fusion API, Google Maps API, Spoonacular API and AWS S3
 
 ## ▶️ Development
-Prerequisite: have Yarn installed, and Ruby version 2.7.3.
+Prerequisite: have Yarn installed, Node 20+ installed, and Ruby version 2.7.3.
 
 1. Clone the repository
     ```sh
@@ -43,9 +43,9 @@ Prerequisite: have Yarn installed, and Ruby version 2.7.3.
     rails server
     ```
     
-5. Start webpack-dev-server
+5. Start shakapacker dev server
     ```sh
-    yarn run start
+    bin/shakapacker-dev-server
     ```
     
 6. Open the development site **[localhost:3000](http://localhost:3000)**

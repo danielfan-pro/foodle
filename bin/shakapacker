@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
+ENV["NODE_ENV"] ||= ENV["RAILS_ENV"]
+
+require "pathname"
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", Pathname.new(__FILE__).realpath.dirname)
+APP_ROOT = File.expand_path("..", __dir__)
+
+require_relative "../config/boot"
+
+require "shakapacker"
+require "shakapacker/webpack_runner"
+Shakapacker::WebpackRunner.run(ARGV)
