@@ -482,6 +482,16 @@ label {
 }
 
 @media screen and (max-width: 768px) {
+  .dark-mode-toggle {
+    float: none;
+    display: block;
+    width: fit-content;
+    margin: 0.35rem 1rem 1.1rem auto;
+    padding-right: 0;
+    padding-top: 0;
+    line-height: 1;
+  }
+
   .logo-main-search {
     width: clamp(10.5rem, 50vw, 14rem);
     object-position: 54% 50%;
