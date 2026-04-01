@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import UserProfileShow from "./UserProfileShow"
 import ReviewPostedTile from "./ReviewPostedTile"
+import foodleTransparentLogo from "../../../assets/images/foodle transparent.png"
 
 const UserProfileContainer = (props) => {
   const [currentUser, setCurrentUser] = useState({
@@ -41,7 +42,7 @@ const UserProfileContainer = (props) => {
   }, [])
 
   if (currentUser.user.profile_photo.url === null) {
-    profilePhoto = "/assets/foodle%20transparent.png"
+    profilePhoto = foodleTransparentLogo
   }
 
   const reviewsPosted = currentUser.user.reviews.map((review) => {

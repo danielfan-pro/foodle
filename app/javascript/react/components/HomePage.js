@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import HomePageImages from "./HomePageImages"
+import foodleTransparentLogo from "../../../assets/images/foodle transparent.png"
 
 const HomePage = () => {
   const [restaurantFeatured, setRestaurantFeatured] = useState({
@@ -54,7 +55,7 @@ const HomePage = () => {
     <div>
       <div className="logo-main">
         <img
-          src="/assets/foodle%20transparent.png"
+          src={foodleTransparentLogo}
           alt="foodle logo"
           className="logo-main-search"
         />

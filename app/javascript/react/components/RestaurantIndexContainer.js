@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import RestaurantSearchBar from "./RestaurantSearchBar"
 import RestaurantFeatured from "./RestaurantFeatured"
 import RestaurantTile from "./RestaurantTile"
+import foodleTransparentLogo from "../../../assets/images/foodle transparent.png"
 
 const RestaurantIndexContainer = () => {
   const [restaurantFeatured, setRestaurantFeatured] = useState({
@@ -27,7 +28,7 @@ const RestaurantIndexContainer = () => {
       <Link to="/restaurants">
         <div className={`logo-main ${displayLogo}`}>
           <img
-            src="/assets/foodle%20transparent.png"
+            src={foodleTransparentLogo}
             alt="foodle logo"
             className="logo-main-search"
           />
