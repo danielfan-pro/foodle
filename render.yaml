@@ -6,9 +6,10 @@ databases:
 services:
   - type: web
     name: foodle
-    env: docker
+    env: ruby
     plan: free
-    dockerfilePath: ./Dockerfile
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec rails server"
     envVars:
       - key: RAILS_MASTER_KEY
         sync: false

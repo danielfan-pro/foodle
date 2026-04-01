@@ -15,13 +15,13 @@
 
 ## 🚀 Programming
 
-- Backend: Ruby 2.7.3, Rails 5.2.5
+- Backend: Ruby 3.1.7, Rails 6.1.7
 - Frontend: React, Shakapacker (Webpack 5)
 - Database: PostgreSQL
 - Third party APIs: Yelp Fusion API, Google Maps API, Spoonacular API and AWS S3
 
 ## ▶️ Development
-Prerequisite: have Yarn installed, Node 20+ installed, and Ruby version 2.7.3.
+Prerequisite: have Yarn installed, Node 20+ installed, and Ruby version 3.1.7.
 
 1. Clone the repository
     ```sh
