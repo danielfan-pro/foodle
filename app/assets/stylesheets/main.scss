@@ -114,15 +114,24 @@ ul.right {
   padding-bottom: 3rem;
 }
 
+.restaurant-featured .column {
+  max-width: min(92vw, 34rem);
+  margin: 0 auto;
+}
+
 .restaurant-featured-image {
-  width: 15%;
-  height: 15%;
+  width: min(92vw, 30rem);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin: 0.8rem auto 0;
   border-radius: 1rem;
 }
 
 .restaurant-image {
-  width: 30%;
-  height: 30%;
+  width: min(100%, 14rem);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -525,5 +534,19 @@ label {
   .search-button {
     font-size: 1rem;
     padding: 0.7rem 1.1rem;
+  }
+
+  .restaurant-featured .column {
+    max-width: min(94vw, 24rem);
+  }
+
+  .restaurant-featured-image {
+    width: min(94vw, 24rem);
+    aspect-ratio: 4 / 3;
+  }
+
+  .restaurant-image {
+    width: min(72vw, 12rem);
+    aspect-ratio: 4 / 3;
   }
 }
