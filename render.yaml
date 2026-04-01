@@ -9,7 +9,7 @@ services:
     env: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec rails server"
+    startCommand: "bundle exec rails db:migrate && bundle exec rails server -b 0.0.0.0 -p $PORT"
     envVars:
       - key: RAILS_MASTER_KEY
         sync: false
