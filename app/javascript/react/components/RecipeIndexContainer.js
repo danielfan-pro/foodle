@@ -22,7 +22,7 @@ const RecipeIndexContainer = () => {
       <Link to="/recipes">
         <div className={`logo-main ${displayLogo}`}>
           <img
-            src="https://foodle-development.s3.amazonaws.com/foodle+transparent.png"
+            src="/assets/foodle%20transparent.png"
             alt="foodle logo"
             className="logo-main-search"
           />

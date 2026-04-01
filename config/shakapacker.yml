@@ -1,0 +1,64 @@
+# Note: You must restart bin/shakapacker-dev-server for changes to take effect
+
+default: &default
+  source_path: app/javascript
+  source_entry_path: packs
+  public_root_path: public
+  public_output_path: packs
+  cache_path: tmp/cache/shakapacker
+  webpack_compile_output: false
+  additional_paths: []
+  cache_manifest: false
+  nested_entries: false
+  css_extract_ignore_order_warnings: false
+  static_assets_extensions:
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .tiff
+    - .ico
+    - .svg
+    - .eot
+    - .otf
+    - .ttf
+    - .woff
+    - .woff2
+  extensions:
+    - .jsx
+    - .js
+    - .sass
+    - .scss
+    - .css
+    - .module.sass
+    - .module.scss
+    - .module.css
+    - .png
+    - .svg
+    - .gif
+    - .jpeg
+    - .jpg
+  compiler_strategy: mtime
+
+development:
+  <<: *default
+  compile: true
+  dev_server:
+    host: localhost
+    port: 3035
+    hot: false
+    client:
+      overlay: true
+    compress: true
+    headers:
+      "Access-Control-Allow-Origin": "*"
+
+test:
+  <<: *default
+  compile: true
+  public_output_path: packs-test
+
+production:
+  <<: *default
+  compile: false
+  cache_manifest: true

@@ -52,7 +52,7 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails', '~> 6.5'
-gem 'webpacker', '~> 3.3'
+gem 'shakapacker', '8.4.0'
 gem 'active_model_serializers'
 gem 'carrierwave'
 gem 'fog-aws'
@@ -60,3 +60,4 @@ gem 'carrierwave-aws'
 gem 'http'
 gem 'rails_real_favicon'
 gem 'faraday'
+gem "nio4r", "~> 2.7"

@@ -41,8 +41,7 @@ const UserProfileContainer = (props) => {
   }, [])
 
   if (currentUser.user.profile_photo.url === null) {
-    profilePhoto =
-      "https://foodle-production.s3.amazonaws.com/foodle+transparent.png"
+    profilePhoto = "/assets/foodle%20transparent.png"
   }
 
   const reviewsPosted = currentUser.user.reviews.map((review) => {
