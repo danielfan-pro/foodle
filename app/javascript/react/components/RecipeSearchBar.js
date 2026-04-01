@@ -66,6 +66,7 @@ const RecipeSearchBar = (props) => {
             value={searchParams.item}
             onChange={handleChange}
             placeholder="category (pizza, pasta, etc)"
+            className="input-group-field"
           />
 
           <div className={`input-group-button ${searchButtonOther}`}>

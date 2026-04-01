@@ -9,6 +9,21 @@
   text-align: center;
 }
 
+.top-bar .left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.top-bar .left a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.top-bar .button {
+  margin: 0;
+}
+
 ul.right {
   margin: 0;
 }
@@ -44,25 +59,55 @@ ul.right {
   width: 5rem;
   height: auto;
   border-radius: 1rem;
-  margin-right: 1rem;
+  margin-right: 0;
 }
 
 .logo-main-search {
-  width: 25%;
-  height: auto;
+  width: clamp(9rem, 16vw, 12rem);
+  aspect-ratio: 1 / 1;
   display: block;
-  margin: auto;
-  padding-left: 3.5rem;
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: 56% 50%;
+}
+
+.logo-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .search-bar {
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .input-group {
-  width: 60%;
+  width: min(92vw, 38rem);
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.search-bar .input-group .input-group-field,
+.search-bar .input-group input[type="text"] {
+  min-width: 0;
+  font-size: 0.95rem;
+}
+
+.search-bar .input-group .input-group-button {
+  margin: 0;
+}
+
+.search-bar .input-group .input-group-button .button {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.search-bar input::placeholder {
+  font-size: 0.9rem;
 }
 
 .restaurant-featured {
@@ -145,6 +190,8 @@ h6 {
 
 .category-header {
   text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h2,
@@ -190,6 +237,7 @@ p {
 .search-button {
   display: block;
   margin: auto;
+  margin-top: 0.75rem;
   font-weight: bolder;
 }
 
@@ -431,4 +479,41 @@ label {
 
 .recipe-instruction {
   font-size: x-large;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-main-search {
+    width: clamp(10.5rem, 50vw, 14rem);
+    object-position: 54% 50%;
+  }
+
+  .search-bar {
+    padding-top: 1.25rem;
+  }
+
+  .search-bar .input-group {
+    width: min(94vw, 24rem);
+    display: block;
+  }
+
+  .search-bar .input-group .input-group-field,
+  .search-bar .input-group input[type="text"] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.75rem 0.9rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .search-bar .input-group .input-group-button {
+    width: 100%;
+  }
+
+  .search-bar input::placeholder {
+    font-size: 0.95rem;
+  }
+
+  .search-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.1rem;
+  }
 }
