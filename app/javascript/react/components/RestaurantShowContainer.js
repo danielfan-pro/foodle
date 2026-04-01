@@ -21,7 +21,6 @@ const RestaurantShowContainer = (props) => {
   const [currentUser, setCurrentUser] = useState({ id: null })
   const restaurantId = props.match.params.id
 
-  let reviewText = "show"
   let reviewButton = "hide"
 
   const getRestaurant = async () => {
@@ -57,7 +56,6 @@ const RestaurantShowContainer = (props) => {
 
   if (signedIn !== false) {
     reviewButton = "show"
-    reviewText = "hide"
   }
 
   useEffect(() => {
@@ -90,14 +88,6 @@ const RestaurantShowContainer = (props) => {
               latitude={restaurant.coordinates.latitude}
               longitude={restaurant.coordinates.longitude}
             />
-          </div>
-          <div className={`${reviewText}`}>
-            <p className="review-text-long">
-              Recommend the best food to others by leaving a review.
-            </p>
-            <p className="review-text">
-              Click <a href="/users/sign_in">Sign In</a> to begin.
-            </p>
           </div>
           <a href={`/restaurants/${restaurantId}/reviews/new`}>
             <button className={`button clear ${reviewButton} write-review`}>

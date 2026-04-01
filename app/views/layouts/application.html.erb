@@ -29,11 +29,9 @@
           <%- if current_user && current_user[:profile_photo].nil? == false-%>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button hollow"%></li>
             <li><a href='/u/<%= current_user.username %>'><img class="profile-icon" src='<%= current_user.profile_photo %>' /></a></li>
-           <%- elsif current_user && current_user[:profile_photo].nil? -%>  
+          <%- elsif current_user && current_user[:profile_photo].nil? -%>  
               <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "button hollow"%></li>
               <li><a href='/u/<%= current_user.username %>'><img class="profile-icon" src='<%= default_profile %>' /></a></li>
-          <%- else -%>
-            <li><%= link_to 'Sign In', new_user_session_path, :class => "button hollow" %></li>
           <%- end -%>
         </ul>
       </div>

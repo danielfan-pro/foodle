@@ -8,14 +8,21 @@
   padding-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
   text-align: center;
 }
 
 .top-bar .left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.35rem;
+  transform: translateX(-0.8rem);
+}
+
+.top-bar .left > a:first-child {
+  margin-left: -0.55rem;
+  margin-right: 1.15rem;
 }
 
 .top-bar .top-bar-section {
@@ -39,7 +46,7 @@ ul.right {
 .top-bar .top-bar-section .right {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -64,7 +71,7 @@ ul.right {
 }
 
 .theme-toggle-slot {
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   line-height: 1;
@@ -609,6 +616,8 @@ label {
 
 @media screen and (max-width: 768px) {
   .top-bar {
+    justify-content: space-between;
+    gap: 0.75rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
